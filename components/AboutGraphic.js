@@ -55,7 +55,7 @@ export default function AboutGraphic() {
       for (let w = 0; w < numNoiseWaves; w++) {
         ctx.strokeStyle = mutedColor;
         ctx.beginPath();
-        
+
         const freqOffset = w * 0.18;
         const ampOffset = w * 7;
         const speedFactor = 1.1 + w * 0.18;
@@ -64,12 +64,12 @@ export default function AboutGraphic() {
           // Amplitude dampens to 0 at center divider line
           const progress = x / centerX;
           const amplitude = (30 - ampOffset) * (1 - progress);
-          
+
           // Generate complex wave pattern simulating noise
           const wave1 = Math.sin(x * 0.10 + time * speedFactor + freqOffset);
           const wave2 = Math.cos(x * 0.28 - time * speedFactor * 1.4 + w);
           const wave3 = Math.sin(x * 0.52 + time * 0.7);
-          
+
           const noiseVal = (wave1 * 0.5 + wave2 * 0.35 + wave3 * 0.15) * amplitude;
           const y = centerY + noiseVal;
 
@@ -90,7 +90,7 @@ export default function AboutGraphic() {
         const progress = (x - centerX) / (width - 10 - centerX);
         // Amplitude fades in from center divider
         const amplitude = 22 * Math.min(progress * 5, 1);
-        
+
         const y = centerY + Math.sin((x - centerX) * 0.18 - time * 1.8) * amplitude;
 
         if (x === centerX) {
@@ -112,14 +112,14 @@ export default function AboutGraphic() {
   }, [mounted]);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.8rem', width: '30rem' }}>
-      <canvas 
-        ref={canvasRef} 
-        style={{ 
-          width: '30rem', 
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', width: '30rem' }}>
+      <canvas
+        ref={canvasRef}
+        style={{
+          width: '30rem',
           height: '13rem',
           display: 'block'
-        }} 
+        }}
       />
       <div style={{ fontSize: 'var(--font-size-xs)', color: 'var(--muted-color)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
         converting noise to signal

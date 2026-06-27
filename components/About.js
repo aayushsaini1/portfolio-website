@@ -5,8 +5,8 @@ export default function About({ data }) {
   if (!data) return null;
   return (
     <section id="about" className="section about-section">
-      <div style={{ display: 'flex', gap: '40px' }}>
-        <div>
+      <div className="section-inner">
+        <div className="section-header">
           <span className="section-label">[01]</span>
           <h2 style={{ fontSize: 'var(--font-size-lg)', textTransform: 'uppercase' }}>{data.title}</h2>
         </div>

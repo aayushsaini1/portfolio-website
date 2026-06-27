@@ -250,6 +250,19 @@ ul {
   display: block;
 }
 
+/* Section inner row: label+title on left, content on right (desktop) */
+.section-inner {
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+/* Fixed-width column holding [0x] label + section title */
+.section-header {
+  width: 14rem;
+  flex-shrink: 0;
+}
+
 /* Section specific */
 .hero-section {
   display: flex;
@@ -652,4 +665,330 @@ ul {
   color: #888;
   text-transform: uppercase;
   font-size: var(--font-size-sm);
+}
+
+/* ============================================================
+   MOBILE HEADER BAR
+   Hidden on desktop, shown on mobile via @media below
+   ============================================================ */
+.mobile-header {
+  display: none;
+  /* desktop: hidden */
+}
+
+/* Hamburger / close button inside mobile header */
+.mobile-menu-btn {
+  display: none;
+  /* desktop: hidden */
+}
+
+/* Theme toggle inside mobile header */
+.mobile-theme-btn {
+  display: none;
+  /* desktop: hidden */
+}
+
+/* ============================================================
+   TABLET — 769px to 1024px
+   ============================================================ */
+@media (max-width: 1024px) {
+  .hero-text h1 {
+    font-size: 6rem;
+  }
+
+  .hero-image-container {
+    width: 30rem;
+    height: 40rem;
+  }
+
+  .about-text {
+    max-width: 48rem;
+  }
+}
+
+/* ============================================================
+   MOBILE — ≤ 768px
+   ============================================================ */
+@media (max-width: 768px) {
+
+  /* --- Mobile sticky header --- */
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5.6rem;
+    z-index: 1100;
+    background: var(--bg-color);
+    border-bottom: 0.1rem solid var(--border-color);
+    padding: 0 1.6rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  /* Hamburger / X button */
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.6rem;
+    transition: color 0.2s ease;
+  }
+
+  .mobile-menu-btn:hover {
+    color: var(--text-color);
+  }
+
+  /* Centered barcode wordmark */
+  .mobile-header-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+  }
+
+  /* Theme toggle button */
+  .mobile-theme-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.6rem;
+    transition: color 0.2s ease;
+  }
+
+  .mobile-theme-btn:hover {
+    color: var(--text-color);
+  }
+
+  /* Hide sidebar-logo on mobile — barcode + theme toggle live in the header */
+  .sidebar-logo {
+    display: none;
+  }
+
+  /* --- Sidebar: hidden off-screen by default --- */
+  .sidebar {
+    position: fixed;
+    top: 5.6rem;
+    /* sits below the sticky header */
+    left: 0;
+    height: calc(100vh - 5.6rem);
+    z-index: 999;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 70vw;
+    overflow-y: auto;
+    background: var(--bg-color);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  /* Spacer no longer needed — sidebar starts below the header now */
+  .sidebar-mobile-spacer {
+    display: none;
+  }
+
+  /* Overlay sits between header and sidebar */
+  .sidebar-overlay {
+    position: fixed;
+    top: 5.6rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 998;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    animation: fadeInOverlay 0.2s ease forwards;
+  }
+
+  @keyframes fadeInOverlay {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* --- App container — no side borders on mobile --- */
+  .app-container {
+    border-left: none;
+    border-right: none;
+    flex-direction: column;
+  }
+
+  /* --- Main content takes full width + clears sticky header --- */
+  .main-content {
+    width: 100%;
+    padding-top: 8rem;
+    /* header height */
+  }
+
+  /* --- Sections: tighter padding --- */
+  .section {
+    padding: 4rem 2rem;
+  }
+
+  /* Extra breathing room on first section */
+  #home.section {
+    padding-top: 2.4rem;
+  }
+
+  /* ---- Hero ---- */
+  .hero-section {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .hero-text h1 {
+    font-size: 5rem;
+    letter-spacing: -0.1rem;
+  }
+
+  .hero-image-container {
+    width: 90vw;
+    height: 90vw;
+    order: -1;
+    /* portrait appears above text */
+  }
+
+  .hero-role {
+    margin-bottom: 2rem;
+  }
+
+  /* ---- Section inner layout: stack vertically on mobile ---- */
+  /* Order on screen: [01] → title → content */
+  .section-inner {
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  .section-header {
+    width: 100%;
+  }
+
+  .section-header .section-label {
+    margin-bottom: 0.4rem;
+  }
+
+  .about-section {
+    flex-direction: column;
+    gap: 8rem;
+    align-items: flex-start;
+  }
+
+  .about-text {
+    max-width: 100%;
+    font-size: var(--font-size-base);
+  }
+
+  .about-graphic {
+    width: 100%;
+    height: 12rem;
+  }
+
+  /* ---- Stack / Tools (Experience graphic column) ---- */
+  .stack-section {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .stack-graphic {
+    display: none;
+    /* hide decorative SVG graphic on mobile */
+  }
+
+  /* ---- Experience ---- */
+  .experience-item {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    padding: 1.6rem 0;
+  }
+
+  .exp-left {
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .exp-company {
+    width: auto;
+  }
+
+  .exp-right {
+    width: 100%;
+    justify-content: space-between;
+    padding-left: 3rem;
+    /* align with company text */
+  }
+
+  .exp-date {
+    text-align: left;
+    width: auto;
+  }
+
+  .exp-description {
+    margin-left: 0;
+    padding-bottom: 1.6rem;
+  }
+
+  .exp-description-wrapper.expanded {
+    max-height: 80rem;
+    /* more room for mobile line-wrapped text */
+  }
+
+  /* Negative margin to align experience rows with section edge on mobile */
+  .experience-item {
+    margin-left: -2.6rem;
+  }
+
+  /* practice.svg rotated 90deg on mobile so it reads horizontally */
+  .stack-graphic-exp {
+    display: flex !important;
+    /* override the hide rule for plain .stack-graphic */
+    width: 100% !important;
+    height: 10rem !important;
+    margin-top: 2rem;
+  }
+
+  .practice-svg {
+    transform: rotate(90deg);
+    scale: 400%;
+    overflow: hidden;
+    transform-origin: center center;
+  }
+
+  /* ---- Work / Projects grid ---- */
+  .projects-grid {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  /* ---- Contact footer ---- */
+  .contact-footer {
+    flex-direction: column;
+    gap: 2.4rem;
+    align-items: flex-start;
+  }
+
+  /* ---- Bottom bar ---- */
+  .bottom-bar {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 2rem;
+  }
 }

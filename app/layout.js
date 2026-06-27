@@ -11,7 +11,7 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata = {
-  title: "Aayush Saini - Lead UX Designer",
+  title: "Aayush Saini - UX Designer",
   description: "Portfolio of Aayush Saini, Lead UX Designer.",
 };
 

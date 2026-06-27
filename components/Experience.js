@@ -13,9 +13,11 @@ export default function Experience({ data }) {
 
   return (
     <section id="experience" className="section">
-      <span className="section-label">[03]</span>
-      <div style={{ display: 'flex', gap: '40px' }}>
-        <h2 style={{ fontSize: 'var(--font-size-lg)', textTransform: 'uppercase', width: '120px' }}>EXPERIENCE</h2>
+      <div className="section-inner">
+        <div className="section-header">
+          <span className="section-label">[03]</span>
+          <h2 style={{ fontSize: 'var(--font-size-lg)', textTransform: 'uppercase', width: '120px' }}>EXPERIENCE</h2>
+        </div>
 
         <div className="experience-list" style={{ flex: 1 }}>
           {data.map((exp, index) => {
@@ -50,7 +52,7 @@ export default function Experience({ data }) {
           })}
         </div>
 
-        <div className="stack-graphic" style={{ width: '15rem', height: '25rem', position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <div className="stack-graphic stack-graphic-exp" style={{ width: '15rem', height: '25rem', position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           {/* Accent corner anchors */}
           <div style={{ position: 'absolute', top: '-1rem', left: '-1rem', color: 'var(--accent-color)', fontSize: 'var(--font-size-md)' }}>⌜</div>
           <div style={{ position: 'absolute', top: '-1rem', right: '-1rem', color: 'var(--accent-color)', fontSize: 'var(--font-size-md)' }}>⌝</div>
@@ -59,6 +61,7 @@ export default function Experience({ data }) {
 
           {/* Inlined practice.svg using currentColor fill to support light (#000) and dark (#fff) modes */}
           <svg 
+            className="practice-svg"
             width="100%" 
             height="100%" 
             viewBox="0 0 1080 1700" 

@@ -4,9 +4,11 @@ export default function Tools({ data }) {
   if (!data) return null;
   return (
     <section id="tools" className="section">
-      <span className="section-label">[04]</span>
-      <div style={{ display: 'flex', gap: '40px' }}>
-        <h2 style={{ fontSize: 'var(--font-size-lg)', textTransform: 'uppercase', width: '120px' }}>TOOLS</h2>
+      <div className="section-inner">
+        <div className="section-header">
+          <span className="section-label">[04]</span>
+          <h2 style={{ fontSize: 'var(--font-size-lg)', textTransform: 'uppercase', width: '120px' }}>TOOLS</h2>
+        </div>
 
         <div className="stack-section" style={{ flex: 1 }}>
           {data.map((col, index) => (

@@ -89,7 +89,7 @@ export default function Hero({ data }) {
         <div className="crosshair ch-bl"></div>
         <div className="crosshair ch-br"></div>
 
-        <div style={{ position: 'absolute', top: '-3rem', right: '0', fontSize: 'var(--font-size-sm)', color: 'var(--accent-color)' }}>
+        <div className='hero-image' style={{ position: 'absolute', top: '-3rem', right: '0', fontSize: 'var(--font-size-sm)', color: 'var(--accent-color)' }}>
           /dot-matrix.svg
         </div>
 
