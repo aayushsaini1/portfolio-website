@@ -1,0 +1,3 @@
+- Designed end-to-end user journeys for SaaS discovery and app integrations.
+- Mentored junior designers and established best practices for prototyping and developer handoffs.
+- Improved search and filtering efficiency by redesigning the primary integration catalog page.

@@ -1,0 +1,40 @@
+[
+  {
+    "title": "DESIGN",
+    "items": [
+      "Figma",
+      "ADOBE XD (RIP)",
+      "Procreate"
+    ]
+  },
+  {
+    "title": "ENGINES & APIS",
+    "items": [
+      "Unreal Engine",
+      "Unity",
+      "OpenGL",
+      "WebGL",
+      "WebXR"
+    ]
+  },
+  {
+    "title": "AI / ML",
+    "items": [
+      "OpenCV, MediaPipe",
+      "YOLOv8, SAM",
+      "Generative AI",
+      "Facial & Object Tracking",
+      "Photogrammetry"
+    ]
+  },
+  {
+    "title": "TOOLS",
+    "items": [
+      "Blender",
+      "CMake",
+      "Docker",
+      "Git",
+      "RenderDoc"
+    ]
+  }
+]

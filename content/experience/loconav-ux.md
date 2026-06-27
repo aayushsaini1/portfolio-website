@@ -1,0 +1,4 @@
+- Owned UX design for the [LocoNav Fleet Management](https://loconav.com) dashboard used by over 100k fleet owners.
+- Conducted user testing sessions with fleet operators and drivers to improve mobile map navigation workflows.
+- Redesigned the alert and notification system, reducing critical event response times by 30%.
+- Created responsive mockups and interactive high-fidelity prototypes in Figma.

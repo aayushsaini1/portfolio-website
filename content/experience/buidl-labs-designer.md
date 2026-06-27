@@ -1,0 +1,3 @@
+- Translated complex blockchain data analytics concepts into intuitive visual dashboards.
+- Handled front-end layout styling using React and styled-components alongside UX research.
+- Created graphics, logos, and digital branding assets for various Web3 open-source projects.

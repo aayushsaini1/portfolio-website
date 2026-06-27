@@ -1,0 +1,4 @@
+- Led design transformation for Josys core SaaS management platform, serving over 500 enterprise clients globally.
+- Collaborated with engineering to build and deploy a unified design system.
+- Designed key product workflows, reducing user churn by 12% and increasing feature engagement.
+- Partnered with product teams to research user needs and define product roadmaps.

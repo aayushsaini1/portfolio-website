@@ -1,0 +1,30 @@
+[
+  {
+    "company": "JOSYS",
+    "role": "LEAD UX DESIGNER",
+    "date": "2026 — PRESENT",
+    "hasArrow": false,
+    "slug": "josys-lead-ux"
+  },
+  {
+    "company": "JOSYS",
+    "role": "SR UX DESIGNER",
+    "date": "2024 — 2026",
+    "hasArrow": false,
+    "slug": "josys-sr-ux"
+  },
+  {
+    "company": "LOCONAV",
+    "role": "UX DESIGNER",
+    "date": "2021-2024",
+    "hasArrow": false,
+    "slug": "loconav-ux"
+  },
+  {
+    "company": "BUIDL Labs",
+    "role": "DESIGN ENGINEER",
+    "date": "2020 - 2021",
+    "hasArrow": false,
+    "slug": "buidl-labs-designer"
+  }
+]
