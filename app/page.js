@@ -18,14 +18,24 @@ export async function generateMetadata() {
   const heroData = getHeroData();
   const aboutData = getAboutData();
   
+  // Helper to convert string to Title Case
+  const toTitleCase = (str) =>
+    str
+      .toLowerCase()
+      .split(' ')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+
+  const formattedTitle = toTitleCase(heroData.title.replace(/\n/g, ' '));
+
   return {
-    title: `${heroData.title.replace(/\n/g, ' ')} - ${heroData.subtitle}`,
+    title: `${formattedTitle} - ${heroData.subtitle}`,
     description: aboutData.content,
     openGraph: {
-      title: `${heroData.title.replace(/\n/g, ' ')} | Portfolio`,
+      title: `${formattedTitle} | Portfolio`,
       description: aboutData.content,
       type: 'website',
-    }
+    },
   };
 }
 

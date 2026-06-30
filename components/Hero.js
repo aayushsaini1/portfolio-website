@@ -57,7 +57,7 @@ export default function Hero({ data }) {
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
             </i>
-            {data.location}
+            <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(data.location)}`} target="_blank" rel="noopener noreferrer">{data.location}</a>
           </div>
           <div className="hero-contact-item">
             <i>
@@ -89,11 +89,12 @@ export default function Hero({ data }) {
         <div className="crosshair ch-bl"></div>
         <div className="crosshair ch-br"></div>
 
-        <div className='hero-image' style={{ position: 'absolute', top: '-3rem', right: '0', fontSize: 'var(--font-size-sm)', color: 'var(--accent-color)' }}>
-          /dot-matrix.svg
-        </div>
+
 
         <InteractiveDotMatrix />
+        <div className='hero-image' style={{ position: 'absolute', top: '-3rem', right: '0', fontSize: 'var(--font-size-sm)', color: 'var(--accent-color)' }}>
+          /human-portrait.svg
+        </div>
       </div>
     </section>
   );

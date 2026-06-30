@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 
 export default function Contact({ data }) {
@@ -16,10 +18,28 @@ export default function Contact({ data }) {
         </div>
       </div>
 
-      <button className="btn-primary">
-        {data.buttonText}
-        <div className="btn-crosshair"></div>
-      </button>
+      <a href="mailto:aayushsaini.77@gmail.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+        <button
+          className="btn-primary"
+          style={{
+            transition: 'box-shadow 0.2s ease',
+            cursor: 'pointer',
+            border: 'none',
+            outline: 'none'
+          }}
+          onMouseEnter={(e) => {
+            const isDark = document.documentElement.classList.contains('dark');
+            const strokeColor = isDark ? 'rgba(0, 0, 0, 0.5)' : 'rgba(255, 255, 255, 0.5)';
+            e.currentTarget.style.boxShadow = `inset 0 0 0 4px ${strokeColor}`;
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.boxShadow = 'none';
+          }}
+        >
+          {data.buttonText}
+          <div className="btn-crosshair"></div>
+        </button>
+      </a>
     </section>
   );
 }

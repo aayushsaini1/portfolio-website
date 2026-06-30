@@ -1,22 +1,26 @@
 [
   {
     "number": "01",
-    "title": "HORIZON WINDOWS",
-    "link": "#"
+    "title": "Automating the identity governance platform",
+    "link": "#",
+    "image": ""
   },
   {
     "number": "02",
-    "title": "HDRI LIGHTSTUDIO",
-    "link": "#"
+    "title": "Access Review.",
+    "link": "#",
+    "image": ""
   },
   {
     "number": "03",
-    "title": "VIRTUAL TRY-ON SDK",
-    "link": "#"
+    "title": "How we redefined the ux of fleet tech industry",
+    "link": "#",
+    "image": ""
   },
   {
     "number": "04",
-    "title": "360° HDRI GENERATOR",
-    "link": "#"
+    "title": "How playing around with colors helped us crack a Million $ deal",
+    "link": "#",
+    "image": "/work/4/cover.webp"
   }
 ]

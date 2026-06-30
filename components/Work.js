@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 export default function Work({ data }) {
   if (!data) return null;
@@ -12,20 +13,28 @@ export default function Work({ data }) {
 
         <div className="projects-grid" style={{ flex: 1 }}>
           {data.map((project, index) => (
-            <div key={index} className="project-card">
-              <div className="project-image" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <div style={{ color: 'var(--muted-color)', fontSize: 'var(--font-size-xs)' }}>[ WORK {index + 1} ]</div>
+            <Link key={index} href={`/work/${index + 1}`} className="project-card">
+              <div className="project-image">
+                {project.image ? (
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="project-image-inner"
+                  />
+                ) : (
+                  <div className="project-placeholder-inner">[ WORK {index + 1} ]</div>
+                )}
               </div>
               <div className="project-meta">
                 <span className="project-number">{project.number}</span>
                 <span className="project-title">{project.title}</span>
                 <span className="project-arrow">→</span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
-        <div className="accent-block" style={{ width: '150px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <div className="accent-block" style={{ width: '150px', display: 'flex', justifyContent: 'center', alignItems: 'center', alignSelf: 'flex-end' }}>
           <div style={{ color: 'white', textAlign: 'center' }}>[ OB-4<br />PLACEHOLDER ]</div>
         </div>
       </div>

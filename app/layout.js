@@ -1,8 +1,7 @@
 import { Space_Mono } from "next/font/google";
 import "./globals.css";
 
-import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
+import LayoutWrapper from "../components/LayoutWrapper";
 
 const spaceMono = Space_Mono({
   weight: ["400", "700"],
@@ -11,7 +10,7 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata = {
-  title: "Aayush Saini - UX Designer",
+  title: "Aayush Saini - Lead UX Designer",
   description: "Portfolio of Aayush Saini, Lead UX Designer.",
 };
 
@@ -19,14 +18,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${spaceMono.variable}`}>
-        <div className="app-container">
-          <Sidebar />
-          
-          <main className="main-content">
-            {children}
-            <Footer />
-          </main>
-        </div>
+        <LayoutWrapper>
+          {children}
+        </LayoutWrapper>
       </body>
     </html>
   );
