@@ -5,22 +5,24 @@ export default function About({ data }) {
   if (!data) return null;
   return (
     <section id="about" className="section about-section">
-      <div className="section-inner">
-        <div className="section-header">
-          <span className="section-label">[01]</span>
-          <h2 style={{ fontSize: 'var(--font-size-lg)', textTransform: 'uppercase' }}>{data.title}</h2>
+      <div className="about-top-layout">
+        <div className="section-inner" style={{ flex: 1, margin: 0 }}>
+          <div className="section-header">
+            <span className="section-label">[01]</span>
+            <h2 style={{ fontSize: 'var(--font-size-lg)', textTransform: 'uppercase' }}>{data.title}</h2>
+          </div>
+          <div className="about-text" style={{ fontSize: 'var(--font-size-md)', whiteSpace: 'pre-wrap' }}>
+            {data.content}
+          </div>
         </div>
-        <div className="about-text" style={{ fontSize: 'var(--font-size-md)' }}>
-          {data.content}
-        </div>
-      </div>
 
-      <div className="about-graphic">
-        <div style={{ position: 'absolute', top: '-1rem', left: '-1rem', color: 'var(--accent-color)' }}>⌜</div>
-        <div style={{ position: 'absolute', top: '-1rem', right: '-1rem', color: 'var(--accent-color)' }}>⌝</div>
-        <div style={{ position: 'absolute', bottom: '-1rem', left: '-1rem', color: 'var(--accent-color)' }}>⌞</div>
-        <div style={{ position: 'absolute', bottom: '-1rem', right: '-1rem', color: 'var(--accent-color)' }}>⌟</div>
-        <AboutGraphic />
+        <div className="about-graphic">
+          <div style={{ position: 'absolute', top: '-1rem', left: '-1rem', color: 'var(--accent-color)' }}>⌜</div>
+          <div style={{ position: 'absolute', top: '-1rem', right: '-1rem', color: 'var(--accent-color)' }}>⌝</div>
+          <div style={{ position: 'absolute', bottom: '-1rem', left: '-1rem', color: 'var(--accent-color)' }}>⌞</div>
+          <div style={{ position: 'absolute', bottom: '-1rem', right: '-1rem', color: 'var(--accent-color)' }}>⌟</div>
+          <AboutGraphic />
+        </div>
       </div>
     </section>
   );

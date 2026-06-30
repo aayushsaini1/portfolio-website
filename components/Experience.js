@@ -23,11 +23,11 @@ export default function Experience({ data }) {
           {data.map((exp, index) => {
             const isExpanded = expandedIndex === index;
             return (
-              <div key={index} className="experience-container">
+              <div key={index} className="experience-container" style={{ position: 'relative', zIndex: 5 }}>
                 <div
                   className="experience-item"
                   onClick={() => toggleExpand(index)}
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: 'pointer', userSelect: 'none' }}
                 >
                   <div className="exp-left">
                     <div className="exp-arrow" style={{ color: exp.hasArrow ? 'var(--accent-color)' : 'transparent' }}>↓</div>
@@ -39,7 +39,7 @@ export default function Experience({ data }) {
                     <div className="exp-plus-btn" style={{ transition: 'color 0.2s ease' }}>{isExpanded ? '—' : '+'}</div>
                   </div>
                 </div>
-                <div className={`exp-description-wrapper ${isExpanded ? 'expanded' : ''}`}>
+                <div className={`exp-description-wrapper ${isExpanded ? 'expanded' : ''}`} style={{ position: 'relative', zIndex: 4 }}>
                   {exp.descriptionHtml && (
                     <div
                       className="exp-description"

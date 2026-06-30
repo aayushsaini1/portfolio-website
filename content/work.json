@@ -3,24 +3,32 @@
     "number": "01",
     "title": "Automating the identity governance platform",
     "link": "#",
-    "image": ""
+    "image": "",
+    "company": "Josys",
+    "year": "2026"
   },
   {
     "number": "02",
     "title": "Access Review.",
     "link": "#",
-    "image": ""
+    "image": "",
+    "company": "Josys",
+    "year": "2025"
   },
   {
     "number": "03",
     "title": "How we redefined the ux of fleet tech industry",
     "link": "#",
-    "image": ""
+    "image": "/work/3/VT-cover.webp",
+    "company": "Loconav",
+    "year": "2023"
   },
   {
     "number": "04",
     "title": "How playing around with colors helped us crack a Million $ deal",
     "link": "#",
-    "image": "/work/4/cover.webp"
+    "image": "/work/4/cover.webp",
+    "company": "Loconav",
+    "year": "2022"
   }
 ]

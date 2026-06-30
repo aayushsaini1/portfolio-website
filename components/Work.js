@@ -25,8 +25,11 @@ export default function Work({ data }) {
                   <div className="project-placeholder-inner">[ WORK {index + 1} ]</div>
                 )}
               </div>
-              <div className="project-meta">
+              <div className="project-meta-top">
                 <span className="project-number">{project.number}</span>
+                <span className="project-info">{project.company} , {project.year}</span>
+              </div>
+              <div className="project-meta-bottom">
                 <span className="project-title">{project.title}</span>
                 <span className="project-arrow">→</span>
               </div>

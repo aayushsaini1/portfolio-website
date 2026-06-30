@@ -28,12 +28,14 @@ export default function WorkHeader() {
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      padding: '2rem 4rem',
+      padding: '2rem 1.6rem',
       borderBottom: '0.1rem solid var(--border-color)',
       position: 'sticky',
       top: 0,
       background: 'var(--bg-color)',
-      zIndex: 100
+      zIndex: 100,
+      width: '100%',
+      boxSizing: 'border-box'
     }}>
       {/* Left: barcode logo */}
       <Link href="/" aria-label="Go to Home">

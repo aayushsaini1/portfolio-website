@@ -1,6 +1,9 @@
 html {
   font-size: 62.5%;
   /* 1rem = 10px */
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 :root {
@@ -64,6 +67,9 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 .app-container,
@@ -381,11 +387,16 @@ ul {
   right: -1rem;
 }
 
-/* About Section */
 .about-section {
+  display: block;
+}
+
+.about-top-layout {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 4rem;
+  width: 100%;
 }
 
 .about-text {
@@ -404,6 +415,26 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
+}
+
+/* Auto-scrolling horizontal marquee track */
+.client-ticker-track {
+  margin-top: 3rem;
+  animation: scroll-ticker 20s linear infinite;
+}
+
+
+
+@keyframes scroll-ticker {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    /* Moves the track by exactly one third (one replicated block size) */
+    transform: translateX(calc(-100% / 3));
+  }
 }
 
 /* Stack Section */
@@ -560,7 +591,7 @@ ul {
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: 3rem;
   /* 20px */
 }
 
@@ -603,6 +634,11 @@ ul {
   text-decoration: underline;
 }
 
+.project-card:hover {
+  color: inherit !important;
+  text-decoration: none;
+}
+
 .project-card:hover .project-image {
   /* Shrinks the inner image/placeholder container inside by adding padding */
   padding: 4px;
@@ -610,25 +646,45 @@ ul {
   border-color: var(--accent-color);
 }
 
-.project-meta {
+.project-meta-top {
   display: flex;
-  gap: 1rem;
-  /* 10px */
-  align-items: baseline;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.project-meta-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 0.5rem;
 }
 
 .project-number {
   color: var(--accent-color);
+  font-weight: bold;
+}
+
+.project-info {
+  color: var(--muted-color);
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
 }
 
 .project-title {
   font-weight: bold;
   font-size: var(--font-size-sm);
   text-transform: uppercase;
+  color: var(--text-color);
+  flex: 1;
+  padding-right: 2rem;
 }
 
 .project-arrow {
-  margin-left: auto;
+  color: var(--accent-color);
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-top: 0.2rem;
 }
 
 .accent-block {
@@ -1001,6 +1057,11 @@ ul {
     align-items: flex-start;
   }
 
+  .about-top-layout {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
   .about-text {
     max-width: 100%;
     font-size: var(--font-size-base);
@@ -1058,11 +1119,12 @@ ul {
   .exp-description-wrapper.expanded {
     max-height: 80rem;
     /* more room for mobile line-wrapped text */
+    opacity: 1;
   }
 
-  /* Negative margin to align experience rows with section edge on mobile */
+  /* Align experience rows with section edge on mobile */
   .experience-item {
-    margin-left: -2.6rem;
+    margin-left: 0rem;
   }
 
   /* practice.svg rotated 90deg on mobile so it reads horizontally */
@@ -1100,5 +1162,12 @@ ul {
     flex-direction: column;
     gap: 0.8rem;
     padding: 2rem;
+  }
+
+  /* ---- Client Ticker mobile width ---- */
+  .client-ticker-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
   }
 }

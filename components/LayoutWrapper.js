@@ -12,9 +12,9 @@ export default function LayoutWrapper({ children }) {
   const isWorkDetailPage = pathname && pathname.startsWith('/work/');
 
   return (
-    <div className="app-container" style={isWorkDetailPage ? { display: 'block', maxWidth: '100%', border: 'none' } : {}}>
+    <div className="app-container" style={isWorkDetailPage ? { display: 'block', width: '100%', maxWidth: '100vw', border: 'none', overflowX: 'hidden' } : {}}>
       {!isWorkDetailPage && <Sidebar />}
-      <main className="main-content" style={isWorkDetailPage ? { width: '100%' } : {}}>
+      <main className="main-content" style={isWorkDetailPage ? { width: '100%', maxWidth: '100%', boxSizing: 'border-box', paddingTop: '0px' } : {}}>
         {children}
         {!isWorkDetailPage && <Footer />}
       </main>

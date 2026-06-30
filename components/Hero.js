@@ -1,5 +1,6 @@
 import React from 'react';
 import InteractiveDotMatrix from './InteractiveDotMatrix';
+import ClientTicker from './ClientTicker';
 
 export default function Hero({ data }) {
   if (!data) return null;
@@ -80,6 +81,7 @@ export default function Hero({ data }) {
             <a href={`https://${data.linkedin}`} target="_blank" rel="noopener noreferrer">{data.linkedin}</a>
           </div>
         </div>
+        <ClientTicker />
       </div>
 
       <div className="hero-image-container">
@@ -88,8 +90,6 @@ export default function Hero({ data }) {
         <div className="crosshair ch-tr"></div>
         <div className="crosshair ch-bl"></div>
         <div className="crosshair ch-br"></div>
-
-
 
         <InteractiveDotMatrix />
         <div className='hero-image' style={{ position: 'absolute', top: '-3rem', right: '0', fontSize: 'var(--font-size-sm)', color: 'var(--accent-color)' }}>
