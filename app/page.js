@@ -17,7 +17,7 @@ import {
 export async function generateMetadata() {
   const heroData = getHeroData();
   const aboutData = getAboutData();
-  
+
   // Helper to convert string to Title Case
   const toTitleCase = (str) =>
     str
@@ -53,7 +53,7 @@ export default function Home() {
       <About data={aboutData} />
       <Work data={workData} />
       <Experience data={experienceData} />
-      <Tools data={toolsData} />
+      {/* <Tools data={toolsData} />*/}
       <Contact data={contactData} />
     </>
   );
