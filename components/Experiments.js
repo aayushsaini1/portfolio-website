@@ -1,0 +1,73 @@
+import React from 'react';
+
+export default function Experiments({ data }) {
+  if (!data) return null;
+  return (
+    <section id="experiments" className="section">
+      <div className="section-inner">
+        <div className="section-header">
+          <span className="section-label">[04]</span>
+          <h2 style={{ fontSize: 'var(--font-size-lg)', textTransform: 'uppercase', width: '120px' }}>EXPERIMENTS</h2>
+        </div>
+
+        <div className="experiments-grid">
+          {data.map((item, index) => (
+            <a
+              key={index}
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="experiment-card"
+            >
+              {item.image && (
+                <div className="experiment-image-container">
+                  <img src={item.image} alt={item.title} className="experiment-image" />
+                </div>
+              )}
+              <div className="experiment-card-body">
+                <div>
+                  <div style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'flex-start',
+                    marginBottom: '1.5rem'
+                  }}>
+                    <h3 className="experiment-title">
+                      {item.title}
+                    </h3>
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="var(--muted-color)"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="experiment-arrow"
+                      style={{ transition: 'transform 0.3s ease, stroke 0.3s ease', marginTop: '0.4rem' }}
+                    >
+                      <line x1="7" y1="17" x2="17" y2="7" />
+                      <polyline points="7 7 17 7 17 17" />
+                    </svg>
+                  </div>
+                  <p className="experiment-desc">
+                    {item.description}
+                  </p>
+                </div>
+
+                <div className="experiment-tags">
+                  {item.tags.map((tag, tagIdx) => (
+                    <span key={tagIdx} className="tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

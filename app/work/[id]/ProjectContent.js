@@ -17,7 +17,7 @@ export default function ProjectContent({ project, htmlContent }) {
         padding: '2rem 1.6rem 1rem 1.6rem',
         width: '100%'
       }}>
-        <div style={{ width: '100%', maxWidth: '720px', fontSize: 'var(--font-size-sm)', color: 'var(--muted-color)' }}>
+        <div style={{ width: '100%', maxWidth: '720px', fontSize: 'var(--font-size-base)', color: 'var(--muted-color)' }}>
           <Link href="/" style={{ color: 'inherit', textDecoration: 'underline' }} onMouseEnter={(e) => e.target.style.color = 'var(--accent-color)'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>
             /home
           </Link>
@@ -36,11 +36,11 @@ export default function ProjectContent({ project, htmlContent }) {
       }}>
         <article style={{ width: '100%', maxWidth: '720px' }}>
           <header style={{ marginBottom: '4rem' }}>
-            <div style={{ color: 'var(--accent-color)', fontWeight: 'bold', fontSize: 'var(--font-size-base)', marginBottom: '1rem' }}>
+            <div style={{ color: 'var(--accent-color)', fontWeight: 'bold', fontSize: '2.0rem', marginBottom: '1rem' }}>
               [{project.number}]
             </div>
             <h1 style={{
-              fontSize: 'var(--font-size-lg)',
+              fontSize: '3.6rem',
               textTransform: 'uppercase',
               lineHeight: 1.2,
               margin: 0
@@ -49,9 +49,9 @@ export default function ProjectContent({ project, htmlContent }) {
             </h1>
           </header>
 
-          <section 
-            className="project-content" 
-            style={{ fontSize: 'var(--font-size-desc)', lineHeight: '1.6', color: 'var(--desc-text-color)' }}
+          <section
+            className="project-content"
+            style={{ fontSize: 'var(--font-size-md)', lineHeight: '1.6', color: 'var(--desc-text-color)' }}
             dangerouslySetInnerHTML={{ __html: htmlContent }}
           />
         </article>

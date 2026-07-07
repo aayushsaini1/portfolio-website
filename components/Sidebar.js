@@ -11,15 +11,8 @@ export default function Sidebar() {
 
   useEffect(() => {
     setMounted(true);
-    // Initialize dark mode
-    const isDark = localStorage.getItem('theme') === 'dark' ||
-      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    const isDark = document.documentElement.classList.contains('dark');
     setDarkMode(isDark);
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
   }, []);
 
   const toggleDarkMode = () => {
@@ -53,7 +46,7 @@ export default function Sidebar() {
 
   useEffect(() => {
     if (!mounted) return;
-    const sections = ['home', 'about', 'work', 'experience', 'tools', 'contact'];
+    const sections = ['home', 'about', 'work', 'experience', 'experiments', 'contact'];
 
     const handleObserver = (entries) => {
       entries.forEach((entry) => {
@@ -281,10 +274,10 @@ export default function Sidebar() {
               {activeSection !== 'experience' && <span className="dot"></span>}
             </a>
           </li>
-          <li className={activeSection === 'tools' ? 'active' : ''}>
-            <a href="#tools" onClick={(e) => { e.preventDefault(); scrollTo('tools'); }}>
-              <span><span className="nav-num">04</span> tools</span>
-              {activeSection !== 'tools' && <span className="dot"></span>}
+          <li className={activeSection === 'experiments' ? 'active' : ''}>
+            <a href="#experiments" onClick={(e) => { e.preventDefault(); scrollTo('experiments'); }}>
+              <span><span className="nav-num">04</span> experiments</span>
+              {activeSection !== 'experiments' && <span className="dot"></span>}
             </a>
           </li>
           <li className={activeSection === 'contact' ? 'active' : ''}>

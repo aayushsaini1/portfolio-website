@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Apex Touch - watchOS App",
+    "description": "An interactive digital rain terminal simulation utilizing canvas, with custom speed controls and matrix color options.",
+    "tags": [
+      "Swift",
+      "WatchOS",
+      "Game Data API"
+    ],
+    "link": "https://github.com/aayushsaini1/Apex-touch",
+    "image": "https://placehold.co/600x400"
+  },
+  {
+    "title": "What's over my head",
+    "description": "A scanning tool that detects and displays real-time details of aircraft flying directly over your current location, utilizing live flight telemetry and coordinate mapping APIs.",
+    "tags": [
+      "Next Js",
+      "Open Sky API"
+    ],
+    "link": "https://github.com/aayushsaini1/whats-over-my-head",
+    "image": "/work/experiments/whats-over-my-head.png"
+  },
+  {
+    "title": "Bull Bear Bonsai",
+    "description": "A live-rendered 3D bonsai tree that reacts dynamically to real-time stock market indices, changing colors and shape based on market volatility and trends.",
+    "tags": [
+      "Vite",
+      "Three js",
+      "Stock Market API"
+    ],
+    "link": "https://github.com/aayushsaini1/bull-bear-bonsai",
+    "image": "/work/experiments/bull-bear-bonsai.png"
+  }
+]

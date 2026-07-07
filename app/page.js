@@ -3,14 +3,14 @@ import Hero from "../components/Hero";
 import About from "../components/About";
 import Work from "../components/Work";
 import Experience from "../components/Experience";
-import Tools from "../components/Tools";
+import Experiments from "../components/Experiments";
 import Contact from "../components/Contact";
 import {
   getHeroData,
   getAboutData,
   getWorkData,
   getExperienceData,
-  getToolsData,
+  getExperimentsData,
   getContactData
 } from "../lib/content";
 
@@ -44,7 +44,7 @@ export default function Home() {
   const aboutData = getAboutData();
   const workData = getWorkData();
   const experienceData = getExperienceData();
-  const toolsData = getToolsData();
+  const experimentsData = getExperimentsData();
   const contactData = getContactData();
 
   return (
@@ -53,7 +53,7 @@ export default function Home() {
       <About data={aboutData} />
       <Work data={workData} />
       <Experience data={experienceData} />
-      {/* <Tools data={toolsData} />*/}
+      <Experiments data={experimentsData} />
       <Contact data={contactData} />
     </>
   );

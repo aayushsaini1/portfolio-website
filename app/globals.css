@@ -47,7 +47,7 @@ html.dark {
   --border-color: #333333;
   /* Lighter border color for dark mode */
   --muted-color: #888888;
-  --desc-text-color: #c5c5c5;
+  --desc-text-color: #e5e5e5;
   /* Light grey for dark mode readability */
   /* Lighter grey for readable dark theme contrast */
 }
@@ -674,7 +674,7 @@ ul {
 
 .project-title {
   font-weight: bold;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-md);
   text-transform: uppercase;
   color: var(--text-color);
   flex: 1;
@@ -704,22 +704,22 @@ ul {
 }
 
 .project-content h1 {
-  font-size: 2.2rem;
+  font-size: 2.8rem;
 }
 
 .project-content h2 {
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   border-bottom: 0.1rem solid var(--border-color);
   padding-bottom: 0.8rem;
 }
 
 .project-content h3 {
-  font-size: 1.5rem;
+  font-size: 2.0rem;
 }
 
 .project-content p {
   margin-bottom: 2rem;
-  font-size: var(--font-size-desc);
+  font-size: var(--font-size-md);
   line-height: 1.7;
 }
 
@@ -753,7 +753,7 @@ ul {
 }
 
 .project-content em {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-base);
   color: var(--muted-color);
   display: block;
   margin-top: -2rem;
@@ -832,6 +832,112 @@ ul {
   color: #888;
   text-transform: uppercase;
   font-size: var(--font-size-sm);
+}
+
+/* ---- Experiments Section ---- */
+.experiments-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  padding-left: 2rem;
+}
+
+.experiment-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 0.1rem solid var(--border-color);
+  background-color: rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+html.dark .experiment-card {
+  background-color: rgba(255, 255, 255, 0.01);
+}
+
+.experiment-card:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-0.2rem);
+  background-color: rgba(255, 69, 0, 0.02);
+  text-decoration: none;
+}
+
+html.dark .experiment-card:hover {
+  background-color: rgba(255, 69, 0, 0.04);
+}
+
+.experiment-card:hover .experiment-title {
+  text-decoration: underline;
+}
+
+.experiment-card:hover .experiment-arrow {
+  transform: translate(0.2rem, -0.2rem);
+  stroke: var(--accent-color);
+}
+
+.experiment-image-container {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-bottom: 0.1rem solid var(--border-color);
+  background-color: var(--border-color);
+}
+
+.experiment-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.experiment-card:hover .experiment-image {
+  transform: scale(1.05);
+}
+
+.experiment-card-body {
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.experiment-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.experiment-desc {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: var(--desc-text-color);
+  margin: 0 0 2rem 0;
+}
+
+.experiment-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: auto;
+}
+
+.experiment-tags .tag {
+  font-size: 1rem;
+  font-family: var(--font-mono), monospace;
+  padding: 0.2rem 0.6rem;
+  border: 0.1rem solid var(--border-color);
+  border-radius: 0.2rem;
+  color: var(--muted-color);
+  background-color: rgba(0, 0, 0, 0.01);
 }
 
 /* ============================================================
@@ -1170,5 +1276,12 @@ ul {
     width: 100% !important;
     max-width: 100% !important;
     margin-left: 0 !important;
+  }
+
+  /* ---- Experiments mobile ---- */
+  .experiments-grid {
+    padding-left: 0;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
