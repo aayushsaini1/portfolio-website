@@ -11,7 +11,7 @@ const clientLogos = [
   { name: 'Techtonic', src: '/clients/techtonic.png' },
   { name: 'HiveWise', src: '/clients/hivewise.png' },
   { name: 'Krew', src: '/clients/krew.png' },
-  { name: 'Washi', src: '/clients/Washi.png' },
+  { name: 'Washi', src: '/clients/washi.png' },
   { name: 'ECell', src: '/clients/ecell.png' },
 ];
 
