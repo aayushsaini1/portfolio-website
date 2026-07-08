@@ -8,8 +8,8 @@ import Footer from '../components/Footer';
 export default function LayoutWrapper({ children }) {
   const pathname = usePathname();
   
-  // Hide the sidebar when we are inside a project detail page (e.g. starting with '/work/')
-  const isWorkDetailPage = pathname && pathname.startsWith('/work/');
+  // Hide the sidebar when we are inside a project detail page (e.g. starting with '/work/') or the about page
+  const isWorkDetailPage = pathname && (pathname.startsWith('/work/') || pathname === '/about');
 
   return (
     <div className="app-container" style={isWorkDetailPage ? { display: 'block', width: '100%', maxWidth: '100vw', border: 'none' } : {}}>
