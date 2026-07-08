@@ -17,6 +17,7 @@ html {
   --desc-text-color: #444444;
   /* Dark grey for light mode readability */
   /* Defined style guide color */
+  --container-bg-color: #eaeaea;
 
   /* Dimensions */
   --sidebar-width: 20rem;
@@ -50,6 +51,7 @@ html.dark {
   --desc-text-color: #e5e5e5;
   /* Light grey for dark mode readability */
   /* Lighter grey for readable dark theme contrast */
+  --container-bg-color: #151515;
 }
 
 * {
@@ -961,6 +963,78 @@ html.dark .experiment-card:hover {
   /* desktop: hidden */
 }
 
+
+/* ============================================================
+   PROJECT DETAILS STICKY SIDEBAR (TOC)
+   ============================================================ */
+.project-layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1100px;
+  gap: 6rem;
+  margin: 0 auto;
+}
+
+.project-main-column {
+  flex: 1;
+  max-width: 720px;
+  width: 100%;
+}
+
+.project-toc-sidebar {
+  width: 220px;
+  position: sticky;
+  top: 100px; /* offset below sticky header */
+  align-self: start;
+  font-family: var(--font-mono), monospace;
+  font-size: var(--font-size-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.project-toc-title {
+  font-size: var(--font-size-base);
+  text-transform: uppercase;
+  color: var(--muted-color);
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.project-toc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.project-toc-item {
+  color: var(--muted-color);
+  transition: color 0.2s ease;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.project-toc-item:hover {
+  color: var(--text-color);
+  text-decoration: underline;
+}
+
+.project-toc-item.active {
+  color: var(--accent-color);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.project-content h2 {
+  scroll-margin-top: 100px;
+}
+
 /* ============================================================
    TABLET — 769px to 1024px
    ============================================================ */
@@ -977,7 +1051,22 @@ html.dark .experiment-card:hover {
   .about-text {
     max-width: 48rem;
   }
+
+  .project-toc-sidebar {
+    display: none;
+  }
+
+  .project-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .project-main-column {
+    max-width: 720px;
+  }
 }
+
 
 /* ============================================================
    MOBILE — ≤ 768px
