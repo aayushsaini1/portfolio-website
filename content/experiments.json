@@ -3,12 +3,12 @@
     "title": "Apex Touch - watchOS App",
     "description": "An interactive digital rain terminal simulation utilizing canvas, with custom speed controls and matrix color options.",
     "tags": [
-      "Swift",
+      "Swift UI",
       "WatchOS",
       "Game Data API"
     ],
     "link": "https://github.com/aayushsaini1/Apex-touch",
-    "image": "https://placehold.co/600x400"
+    "image": "/work/experiments/ApexWatch-cover.png"
   },
   {
     "title": "What's over my head",

@@ -713,6 +713,7 @@ ul {
   font-size: 2.4rem;
   border-bottom: 0.1rem solid var(--border-color);
   padding-bottom: 0.8rem;
+  margin-top: 7.0rem;
 }
 
 .project-content h3 {
@@ -742,6 +743,13 @@ ul {
 .project-content li {
   margin-bottom: 0.8rem;
   line-height: 1.6;
+}
+
+.project-content hr {
+  margin-top: 4.0rem;
+  margin-bottom: 7.0rem;
+  border: none;
+  border-top: 0.1rem solid var(--border-color);
 }
 
 .project-content img,
