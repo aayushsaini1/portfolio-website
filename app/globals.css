@@ -893,7 +893,7 @@ html.dark .experiment-card:hover {
 
 .experiment-image-container {
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 3/2;
   overflow: hidden;
   border-bottom: 0.1rem solid var(--border-color);
   background-color: var(--border-color);
@@ -948,6 +948,12 @@ html.dark .experiment-card:hover {
   border-radius: 0.2rem;
   color: var(--muted-color);
   background-color: rgba(0, 0, 0, 0.01);
+}
+
+.not-found-home-btn:hover {
+  background-color: var(--accent-color) !important;
+  color: #ffffff !important;
+  border-color: var(--accent-color) !important;
 }
 
 /* ============================================================
