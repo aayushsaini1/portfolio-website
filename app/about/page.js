@@ -3,7 +3,7 @@ import WorkHeader from '../../components/WorkHeader';
 import Globe from '../../components/about/globe/Globe';
 
 export const metadata = {
-  title: 'About | Orbital Globe Tracker',
+  title: 'About',
   description: 'Interactive 3D globe tracker displaying the live International Space Station (ISS) position and Near Earth Objects (NEOs) using NASA public data.',
 };
 
@@ -19,7 +19,7 @@ export default function AboutPage() {
     }}>
       {/* Header showing barcode logo and theme toggle */}
       <WorkHeader />
-      
+
       {/* Interactive Globe Container */}
       <div style={{
         flex: 1,

@@ -1,7 +1,7 @@
 [
   {
     "title": "Apex Touch - watchOS App",
-    "description": "An interactive digital rain terminal simulation utilizing canvas, with custom speed controls and matrix color options.",
+    "description": "An Apple Watch (WatchOS) app which gets connected to F1 25 game and shows real time telemetry data on your wrist along with haptic feedback fro gear shifts and race events",
     "tags": [
       "Swift UI",
       "WatchOS",

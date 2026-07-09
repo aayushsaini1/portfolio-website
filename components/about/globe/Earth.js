@@ -185,7 +185,7 @@ export default function Earth({ globeRadius, setFocusedId, children }) {
 
   // Reactive shader uniforms based on the theme mode
   const atmosphereUniforms = useMemo(() => ({
-    color: { value: new THREE.Color(isDark ? '#ddeefcff' : '#070707ff') },
+    color: { value: new THREE.Color(isDark ? '#ddeefc' : '#070707') },
     opacityMultiplier: { value: isDark ? 0.45 : 0.1 }
   }), [isDark]);
 
