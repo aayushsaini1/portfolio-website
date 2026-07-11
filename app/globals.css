@@ -1445,3 +1445,22 @@ html.dark .experiment-card:hover {
 .work-content-page .project-content em {
   font-size: 1.8rem;
 }
+
+/* ============================================================
+   IMAGE COMPARISON SLIDER FIXES
+   ============================================================ */
+.image-comparison-slider img {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  height: 100% !important;
+  margin: 0 !important;
+  border: none !important;
+  background-color: transparent !important;
+  object-fit: cover !important;
+  object-position: left top !important;
+}
+
+.image-comparison-slider .before-wrapper img {
+  max-width: none !important;
+}

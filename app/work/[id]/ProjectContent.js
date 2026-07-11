@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import WorkHeader from '../../../components/WorkHeader';
+import ImageSlider from '../../../components/ImageSlider';
 
 export default function ProjectContent({ project, htmlContent }) {
   const [activeId, setActiveId] = useState('');
@@ -77,6 +78,53 @@ export default function ProjectContent({ project, htmlContent }) {
     }
   };
 
+  // Parse processedHtml to split by the custom before-after-slider tag and render React component natively
+  const renderedParts = useMemo(() => {
+    if (!processedHtml) return null;
+
+    const sliderRegex = /<div\s+class="before-after-slider"([^>]*)\s*><\/div>/gi;
+    const getAttr = (str, attr) => {
+      const match = new RegExp(`${attr}=["']([^"']*)["']`, 'i').exec(str);
+      return match ? match[1] : '';
+    };
+
+    const parts = [];
+    let lastIndex = 0;
+    let match;
+
+    while ((match = sliderRegex.exec(processedHtml)) !== null) {
+      const matchIndex = match.index;
+      if (matchIndex > lastIndex) {
+        parts.push({
+          type: 'html',
+          content: processedHtml.substring(lastIndex, matchIndex)
+        });
+      }
+
+      const attrs = match[1];
+      parts.push({
+        type: 'slider',
+        before: getAttr(attrs, 'data-before'),
+        after: getAttr(attrs, 'data-after'),
+        beforeLabel: getAttr(attrs, 'data-before-label'),
+        afterLabel: getAttr(attrs, 'data-after-label'),
+        height: getAttr(attrs, 'data-height'),
+        aspectRatio: getAttr(attrs, 'data-aspect-ratio')
+      });
+
+      lastIndex = sliderRegex.lastIndex;
+    }
+
+    if (lastIndex < processedHtml.length) {
+      parts.push({
+        type: 'html',
+        content: processedHtml.substring(lastIndex)
+      });
+    }
+
+    return parts;
+  }, [processedHtml]);
+
   return (
     <div className="work-content-page" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', width: '100%' }}>
       {/* Sticky Header with Barcode Logo & Dark/Light mode toggle */}
@@ -144,8 +192,36 @@ export default function ProjectContent({ project, htmlContent }) {
               <section
                 className="project-content"
                 style={{ fontSize: '2rem', lineHeight: '1.6', color: 'var(--desc-text-color)' }}
-                dangerouslySetInnerHTML={{ __html: processedHtml }}
-              />
+              >
+                {renderedParts ? (
+                  renderedParts.map((part, index) => {
+                    if (part.type === 'html') {
+                      return (
+                        <div 
+                          key={index} 
+                          dangerouslySetInnerHTML={{ __html: part.content }} 
+                          style={{ display: 'contents' }} 
+                        />
+                      );
+                    } else if (part.type === 'slider') {
+                      return (
+                        <ImageSlider 
+                          key={index}
+                          before={part.before} 
+                          after={part.after} 
+                          beforeLabel={part.beforeLabel} 
+                          afterLabel={part.afterLabel} 
+                          height={part.height || undefined}
+                          aspectRatio={part.aspectRatio || undefined}
+                        />
+                      );
+                    }
+                    return null;
+                  })
+                ) : (
+                  <div dangerouslySetInnerHTML={{ __html: processedHtml }} />
+                )}
+              </section>
             </article>
           </div>
         </div>
