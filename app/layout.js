@@ -12,6 +12,9 @@ const spaceMono = Space_Mono({
 export const metadata = {
   title: "Aayush Saini - Lead UX Designer",
   description: "Portfolio of Aayush Saini, Lead UX Designer.",
+  icons: {
+    icon: "/icon.svg"
+  }
 };
 
 export default function RootLayout({ children }) {

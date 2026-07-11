@@ -13,7 +13,7 @@ Initially, white labelling was done manually by taking hex code of brand colour 
 ## Step 1 : Defining Formula
 As we had our colour scheme ready according to our design system, we reused that to create a formula (yes, it was a big-brain time).
 
-![Formula Details Visualization](/work/loconav-whitelabel/one.avif)
+![Formula Details Visualization](/work/loconav-whitelabel/one.webp)
 
 ## Primary Colors
 Here, P1 was the main colour, the colour that was used as the accent colour, rest of the colours were used for various component states (Hover, pressed, disabled etc.)
@@ -24,15 +24,15 @@ Let’s say a client has their primary colour as blue = HSL(196, 98, 47), then w
 
 Below are some examples based on real-life use cases (try to guess the client names based on the colours) :
 
-![Formula Details Visualization](/work/loconav-whitelabel/two.avif)
+![Formula Details Visualization](/work/loconav-whitelabel/two.webp)
 
 
 ## Greys 
-![Formula Details Visualization](/work/loconav-whitelabel/three.avif)
+![Formula Details Visualization](/work/loconav-whitelabel/three.webp)
 
 Now for the greys, we decided to make them neutral, as Loconav’s greys have little bluish tint, and lot of client requested to make the background of the platform (which is light grey) resemble more of their brand colour, hence we decided we will keep G1 and G2 as neutral i.e remove any saturation value from them and add hue to G3 to G6.
 
-![Formula Details Visualization](/work/loconav-whitelabel/four.avif)
+![Formula Details Visualization](/work/loconav-whitelabel/four.webp)
 
 ## But why only this formula?
 
@@ -43,7 +43,7 @@ In the end, it’s all about implementation, and with the help of our front-end 
 
 Here it is in action :
 
-![Formula Details Visualization](/work/loconav-whitelabel/five.avif)
+![Formula Details Visualization](/work/loconav-whitelabel/five.webp)
 
 
 ## Impact

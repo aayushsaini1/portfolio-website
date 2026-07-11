@@ -46,15 +46,15 @@ This design system later became a genuine differentiator — some clients onboar
 
 ## 4. Key Redesigns
 
-<div class="before-after-slider" data-before="/work/loconav-vt/vt-dash-old.png" data-after="/work/loconav-vt/vt-dash-new.png" data-before-label="Legacy Dashboard" data-after-label="Redesigned Dashboard" data-height="600px"></div>
+<div class="before-after-slider" data-before="/work/loconav-vt/vt-dash-old.webp" data-after="/work/loconav-vt/vt-dash-new.webp" data-before-label="Legacy Dashboard" data-after-label="Redesigned Dashboard" data-height="600px"></div>
 
 **Platform Dashboard** — old layout buried KPIs below excess whitespace, mixed icon styles, and inconsistent headings. Redesigned to surface KPIs and incident video in the first fold, add icon-led scanability, and create clear visual grouping.
 
-<div class="before-after-slider" data-before="/work/loconav-vt/vt-nav-old.png" data-after="/work/loconav-vt/vt-nav-new.png" data-before-label="Legacy Trips Layout" data-after-label="Redesigned Trips Layout" data-height="400px"></div>
+<div class="before-after-slider" data-before="/work/loconav-vt/vt-nav-old.webp" data-after="/work/loconav-vt/vt-nav-new.webp" data-before-label="Legacy Trips Layout" data-after-label="Redesigned Trips Layout" data-height="400px"></div>
 
 **Trips View** — old page had a disorienting inverted-L eye path. Redesigned into two clear zones: trip data on the left, live map tracking on the right.
 
-<div class="before-after-slider" data-before="/work/loconav-vt/vt-video-old.png" data-after="/work/loconav-vt/vt-video-new.png" data-before-label="Legacy Video Playback" data-after-label="Redesigned Video Playback" data-height="400px"></div>
+<div class="before-after-slider" data-before="/work/loconav-vt/vt-video-old.webp" data-after="/work/loconav-vt/vt-video-new.webp" data-before-label="Legacy Video Playback" data-after-label="Redesigned Video Playback" data-height="400px"></div>
 
 **Incident Video Playback** — old modal buried the "add to coaching" action and misplaced the map/graph switcher. Redesigned to surface real-time data below the video (in case of upload/network issues) and clarify both actions.
 

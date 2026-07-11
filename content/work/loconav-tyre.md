@@ -40,7 +40,7 @@ The framing question: how might we help fleet businesses stay ahead of tyre main
 
 Market and competitor research (including hands-on testing of Fleetx devices and client interviews with existing LocoNav customers) showed no competitor offered a true full-stack TMS — most covered only a sub-segment like pressure monitoring or inventory. That gap defined the product goals: easy-to-scan data visualization, real-time monitoring and predictive alerts, safety-first design, and seamless integration with LocoNav's existing modules (trips, maintenance, vehicle details).
 
-![Competitor Analysis](/work/loconav-tyre/competitor-analysis.png)
+![Competitor Analysis](/work/loconav-tyre/competitor-analysis.webp)
 
 ## 4. Design Exploration
 
@@ -56,9 +56,9 @@ Explorations covered the core surfaces end to end: information architecture, lan
 
 **Manage Tyres** — a single page to manage every tyre on a vehicle, see health/status at a glance, and take direct action.
 
-![Tyre Listing](/work/loconav-tyre/tyre-listing.png)
-![Add Tyre](/work/loconav-tyre/add-tyre-2.png)
-![Manage Tyres](/work/loconav-tyre/manage-tyres.png)
+![Tyre Listing](/work/loconav-tyre/tyre-listing.webp)
+![Add Tyre](/work/loconav-tyre/add-tyre-2.webp)
+![Manage Tyres](/work/loconav-tyre/manage-tyres.webp)
 
 ## 6. Product Realisation — The RFID Pivot
 

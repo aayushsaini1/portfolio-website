@@ -3,16 +3,16 @@
 import React from 'react';
 
 const clientLogos = [
-  { name: 'Josys', src: '/clients/josys.png' },
-  { name: 'Loconav', src: '/clients/loconav.png' },
-  { name: 'Stamurai', src: '/clients/stamurai.png' },
-  { name: 'Buidl', src: '/clients/buidl.png' },
-  { name: 'Mountain', src: '/clients/mountain.png' },
-  { name: 'Techtonic', src: '/clients/techtonic.png' },
-  { name: 'HiveWise', src: '/clients/hivewise.png' },
-  { name: 'Krew', src: '/clients/krew.png' },
-  { name: 'Washi', src: '/clients/washi.png' },
-  { name: 'ECell', src: '/clients/ecell.png' },
+  { name: 'Josys', src: '/clients/josys.webp' },
+  { name: 'Loconav', src: '/clients/loconav.webp' },
+  { name: 'Stamurai', src: '/clients/stamurai.webp' },
+  { name: 'Buidl', src: '/clients/buidl.webp' },
+  { name: 'Mountain', src: '/clients/mountain.webp' },
+  { name: 'Techtonic', src: '/clients/techtonic.webp' },
+  { name: 'HiveWise', src: '/clients/hivewise.webp' },
+  { name: 'Krew', src: '/clients/krew.webp' },
+  { name: 'Washi', src: '/clients/washi.webp' },
+  { name: 'ECell', src: '/clients/ecell.webp' },
 ];
 
 export default function ClientTicker() {

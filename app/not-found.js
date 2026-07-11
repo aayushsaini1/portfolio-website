@@ -109,9 +109,9 @@ export default function NotFound() {
             transition: 'all 0.3s ease',
             cursor: 'pointer'
           }}
-          className="not-found-home-btn"
+            className="not-found-home-btn"
           >
-            [ Return to Mission Control ]
+            [ Return to Home ]
           </a>
         </div>
 

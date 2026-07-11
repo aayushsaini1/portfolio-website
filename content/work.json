@@ -3,7 +3,7 @@
     "number": "01",
     "title": "Automating the identity governance platform",
     "link": "#",
-    "image": "/work/josys-policy/cover.png",
+    "image": "/work/josys-policy/cover.webp",
     "company": "Josys",
     "year": "2026",
     "slug": "josys-policy"
@@ -34,14 +34,5 @@
     "company": "Loconav",
     "year": "2022",
     "slug": "loconav-whitelabel"
-  },
-  {
-    "number": "05",
-    "title": "Tyre Management System - Organizing the unorganized sector",
-    "link": "#",
-    "image": "",
-    "company": "Loconav",
-    "year": "2023",
-    "slug": "loconav-tyre"
   }
 ]

@@ -39,7 +39,7 @@ margin: 2rem 0;">
 
 </div>
 
-![Policy & Automations builder showing the full step flow](/work/josys-policy/cover.png)
+![Policy & Automations builder showing the full step flow](/work/josys-policy/cover.webp)
 *Caption: Policy & Automations — from trigger to action, in one continuous build flow*
 
 ---

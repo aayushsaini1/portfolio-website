@@ -69,7 +69,7 @@ export default function Earth({ globeRadius, setFocusedId, children }) {
   // Load and sample the earth landmass image
   useEffect(() => {
     const img = new Image();
-    img.src = '/earth-water.png';
+    img.src = '/earth-water.webp';
     img.crossOrigin = 'Anonymous';
 
     img.onload = () => {
