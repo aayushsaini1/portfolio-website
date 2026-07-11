@@ -13,7 +13,7 @@ export default function Work({ data }) {
 
         <div className="projects-grid" style={{ flex: 1 }}>
           {data.map((project, index) => (
-            <Link key={index} href={`/work/${index + 1}`} className="project-card">
+            <Link key={index} href={`/work/${project.slug}`} className="project-card">
               <div className="project-image">
                 {project.image ? (
                   <img 

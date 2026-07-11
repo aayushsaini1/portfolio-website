@@ -3,9 +3,10 @@
     "number": "01",
     "title": "Automating the identity governance platform",
     "link": "#",
-    "image": "/work/1/cover.png",
+    "image": "/work/josys-policy/cover.png",
     "company": "Josys",
-    "year": "2026"
+    "year": "2026",
+    "slug": "josys-policy"
   },
   {
     "number": "02",
@@ -13,22 +14,34 @@
     "link": "#",
     "image": "",
     "company": "Josys",
-    "year": "2026"
+    "year": "2026",
+    "slug": "josys-action-center"
   },
   {
     "number": "03",
     "title": "How we redefined the ux of fleet tech industry",
     "link": "#",
-    "image": "/work/3/VT-cover.webp",
+    "image": "/work/loconav-vt/VT-cover.webp",
     "company": "Loconav",
-    "year": "2023"
+    "year": "2023",
+    "slug": "loconav-vt"
   },
   {
     "number": "04",
     "title": "How playing around with colors helped us crack a Million $ deal",
     "link": "#",
-    "image": "/work/4/cover.webp",
+    "image": "/work/loconav-whitelabel/cover.webp",
     "company": "Loconav",
-    "year": "2022"
+    "year": "2022",
+    "slug": "loconav-whitelabel"
+  },
+  {
+    "number": "05",
+    "title": "Tyre Management System - Organizing the unorganized sector",
+    "link": "#",
+    "image": "",
+    "company": "Loconav",
+    "year": "2023",
+    "slug": "loconav-tyre"
   }
 ]

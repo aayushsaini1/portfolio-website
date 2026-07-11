@@ -53,7 +53,7 @@ Josys is a B2B SaaS management and IGA platform used by IT admins, MSP operators
 Before Action Center, these lived in their separate modules. An admin managing day-to-day IT health had to move between screens to find out what actually needed their attention, with no consolidated sense of priority.
 
 
-![Screenshot of the "before" state — actions scattered across separate modules](/work/2/before.png)
+![Screenshot of the "before" state — actions scattered across separate modules](/work/josys-action-center/before.png)
 
 
 ---

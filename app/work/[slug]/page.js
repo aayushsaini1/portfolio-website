@@ -3,11 +3,17 @@ import Link from 'next/link';
 import WorkHeader from '../../../components/WorkHeader';
 import { getWorkData, getWorkDetailHtml } from '../../../lib/content';
 
-export async function generateMetadata({ params }) {
-  const { id } = await params;
+export async function generateStaticParams() {
   const workData = getWorkData();
-  const projectIndex = parseInt(id, 10) - 1;
-  const project = workData[projectIndex];
+  return workData.map((project) => ({
+    slug: project.slug,
+  }));
+}
+
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const workData = getWorkData();
+  const project = workData.find((p) => p.slug === slug);
   
   return {
     title: project ? `${project.title} | Portfolio` : 'Project Details | Portfolio',
@@ -15,10 +21,9 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function ProjectPage({ params }) {
-  const { id } = await params;
+  const { slug } = await params;
   const workData = getWorkData();
-  const projectIndex = parseInt(id, 10) - 1;
-  const project = workData[projectIndex];
+  const project = workData.find((p) => p.slug === slug);
 
   if (!project) {
     return (
@@ -31,7 +36,7 @@ export default async function ProjectPage({ params }) {
     );
   }
 
-  const detailData = getWorkDetailHtml(id);
+  const detailData = getWorkDetailHtml(slug);
   const htmlContent = detailData ? detailData.htmlContent : '';
 
   return (

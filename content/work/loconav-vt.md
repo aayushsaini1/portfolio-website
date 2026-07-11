@@ -20,7 +20,8 @@
 </table>
 
 If you want to read full case study, click below, otherwise scroll so read summary.
-<a href="https://docs.google.com/presentation/d/e/2PACX-1vTezOA6S6KKf1s1BI7BfncRjuNz4jzxtYmk9iNqcRQhKMTCdczgHyv--BVSIdnmQg/pub?start=true&loop=false&delayms=60000&slide=id.p1" target="_blank" rel="noopener noreferrer"><span style="font-family: var(--font-mono); font-weight: bold;">View the full case study deck</span></a>
+<a href="https://docs.google.com/presentation/d/e/2PACX-1vTezOA6S6KKf1s1BI7BfncRjuNz4jzxtYmk9iNqcRQhKMTCdczgHyv--BVSIdnmQg/pub?start=true&loop=false&delayms=60000&slide=id.p1" target="_blank" rel="noopener noreferrer">
+</br><span style="font-family: var(--font-mono); font-weight: medium;">View the full case study deck</span></a>
 
 ## 1. Role
 
@@ -45,15 +46,15 @@ This design system later became a genuine differentiator — some clients onboar
 
 ## 4. Key Redesigns
 
-<div class="before-after-slider" data-before="/work/3/vt-dash-old.png" data-after="/work/3/vt-dash-new.png" data-before-label="Legacy Dashboard" data-after-label="Redesigned Dashboard" data-height="600px"></div>
+<div class="before-after-slider" data-before="/work/loconav-vt/vt-dash-old.png" data-after="/work/loconav-vt/vt-dash-new.png" data-before-label="Legacy Dashboard" data-after-label="Redesigned Dashboard" data-height="600px"></div>
 
 **Platform Dashboard** — old layout buried KPIs below excess whitespace, mixed icon styles, and inconsistent headings. Redesigned to surface KPIs and incident video in the first fold, add icon-led scanability, and create clear visual grouping.
 
-<div class="before-after-slider" data-before="/work/3/vt-nav-old.png" data-after="/work/3/vt-nav-new.png" data-before-label="Legacy Trips Layout" data-after-label="Redesigned Trips Layout" data-height="400px"></div>
+<div class="before-after-slider" data-before="/work/loconav-vt/vt-nav-old.png" data-after="/work/loconav-vt/vt-nav-new.png" data-before-label="Legacy Trips Layout" data-after-label="Redesigned Trips Layout" data-height="400px"></div>
 
 **Trips View** — old page had a disorienting inverted-L eye path. Redesigned into two clear zones: trip data on the left, live map tracking on the right.
 
-<div class="before-after-slider" data-before="/work/3/vt-video-old.png" data-after="/work/3/vt-video-new.png" data-before-label="Legacy Video Playback" data-after-label="Redesigned Video Playback" data-height="400px"></div>
+<div class="before-after-slider" data-before="/work/loconav-vt/vt-video-old.png" data-after="/work/loconav-vt/vt-video-new.png" data-before-label="Legacy Video Playback" data-after-label="Redesigned Video Playback" data-height="400px"></div>
 
 **Incident Video Playback** — old modal buried the "add to coaching" action and misplaced the map/graph switcher. Redesigned to surface real-time data below the video (in case of upload/network issues) and clarify both actions.
 
@@ -62,7 +63,10 @@ This design system later became a genuine differentiator — some clients onboar
 - **External** — Recognized LocoNav as a UX-focused video telematics provider; helped close key enterprise onboardings.
 - **Internal** — Validated the new design system at smaller scale before rolling it out to the main platform, ironing out issues early.
 - **Platform expansion** — Integration into LocoNav's core Fleet Management platform, driven by strong demand for the combined offering.
-- **Revenue** — Targeted to reach 50% of LocoNav's total annual revenue by H1 2024.
+- **Revenue** — Reached 50% of LocoNav's total annual revenue by H1 2024.
 
 ---
 
+If you want to read full case study, click below.
+<a href="https://docs.google.com/presentation/d/e/2PACX-1vTezOA6S6KKf1s1BI7BfncRjuNz4jzxtYmk9iNqcRQhKMTCdczgHyv--BVSIdnmQg/pub?start=true&loop=false&delayms=60000&slide=id.p1" target="_blank" rel="noopener noreferrer">
+</br><span style="font-family: var(--font-mono); font-weight: medium;">View the full case study deck</span></a>
