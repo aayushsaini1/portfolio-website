@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 
 const clientLogos = [
   { name: 'Josys', src: '/clients/josys.webp' },
@@ -68,13 +69,14 @@ export default function ClientTicker() {
               flexShrink: 0
             }}
           >
-            <img
+            <Image
               src={logo.src}
               alt={`${logo.name} logo`}
+              width={200}
+              height={48}
               style={{
                 height: '2.4rem', // height of 24px consistent with the design aesthetics
                 width: 'auto',
-
                 transition: 'opacity 0.2s ease, filter 0.2s ease'
               }}
             />

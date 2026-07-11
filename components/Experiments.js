@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 export default function Experiments({ data }) {
   if (!data) return null;
@@ -21,7 +22,13 @@ export default function Experiments({ data }) {
             >
               {item.image && (
                 <div className="experiment-image-container">
-                  <img src={item.image} alt={item.title} className="experiment-image" />
+                  <Image 
+                    src={item.image} 
+                    alt={item.title} 
+                    className="experiment-image"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
                 </div>
               )}
               <div className="experiment-card-body">

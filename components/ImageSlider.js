@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function ImageSlider({ 
   before, 
@@ -45,15 +46,12 @@ export default function ImageSlider({
       }}
     >
       {/* After Image (Background) */}
-      <img 
+      <Image 
         src={after} 
         alt={afterLabel} 
+        fill
+        sizes="100vw"
         style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
           objectFit: 'cover',
           objectPosition: 'left top',
           pointerEvents: 'none'
@@ -92,20 +90,25 @@ export default function ImageSlider({
           boxShadow: '0 0 10px rgba(0,0,0,0.3)'
         }}
       >
-        <img 
-          src={before} 
-          alt={beforeLabel} 
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: containerWidth || '100%',
-            height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'left top',
-            maxWidth: 'none'
-          }}
-        />
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          height: '100%',
+          width: containerWidth ? `${containerWidth}px` : '100vw'
+        }}>
+          <Image 
+            src={before} 
+            alt={beforeLabel} 
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: 'cover',
+              objectPosition: 'left top',
+              maxWidth: 'none'
+            }}
+          />
+        </div>
         <span 
           className="slider-label before" 
           style={{

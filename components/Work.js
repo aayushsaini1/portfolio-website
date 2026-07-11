@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Work({ data }) {
   if (!data) return null;
@@ -16,10 +17,12 @@ export default function Work({ data }) {
             <Link key={index} href={`/work/${project.slug}`} className="project-card">
               <div className="project-image">
                 {project.image ? (
-                  <img 
+                  <Image 
                     src={project.image} 
                     alt={project.title} 
                     className="project-image-inner"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 ) : (
                   <div className="project-placeholder-inner">[ WORK {index + 1} ]</div>

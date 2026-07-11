@@ -899,6 +899,7 @@ html.dark .experiment-card:hover {
   overflow: hidden;
   border-bottom: 0.1rem solid var(--border-color);
   background-color: var(--border-color);
+  position: relative;
 }
 
 .experiment-image {
