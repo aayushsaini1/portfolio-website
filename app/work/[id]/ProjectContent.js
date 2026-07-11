@@ -78,7 +78,7 @@ export default function ProjectContent({ project, htmlContent }) {
   };
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', width: '100%' }}>
+    <div className="work-content-page" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', width: '100%' }}>
       {/* Sticky Header with Barcode Logo & Dark/Light mode toggle */}
       <WorkHeader />
 
@@ -94,8 +94,8 @@ export default function ProjectContent({ project, htmlContent }) {
         {/* Constrained layout container aligning breadcrumbs and content together */}
         <div style={{ width: '100%', maxWidth: '1100px' }}>
           {/* Breadcrumb container */}
-          <div style={{
-            fontSize: 'var(--font-size-base)',
+          <div className="work-breadcrumbs" style={{
+            fontSize: '1.8rem',
             color: 'var(--muted-color)',
             marginBottom: '3rem'
           }}>
@@ -128,11 +128,11 @@ export default function ProjectContent({ project, htmlContent }) {
             {/* Main article body */}
             <article className="project-main-column">
               <header style={{ marginBottom: '4rem' }}>
-                <div style={{ color: 'var(--accent-color)', fontWeight: 'bold', fontSize: '2.0rem', marginBottom: '1rem' }}>
+                <div className="project-number-caption" style={{ color: 'var(--accent-color)', fontWeight: 'bold', fontSize: '2.4rem', marginBottom: '1rem' }}>
                   [{project.number}]
                 </div>
                 <h1 style={{
-                  fontSize: '3.6rem',
+                  fontSize: '4.0rem',
                   textTransform: 'uppercase',
                   lineHeight: 1.2,
                   margin: 0
@@ -143,7 +143,7 @@ export default function ProjectContent({ project, htmlContent }) {
 
               <section
                 className="project-content"
-                style={{ fontSize: 'var(--font-size-md)', lineHeight: '1.6', color: 'var(--desc-text-color)' }}
+                style={{ fontSize: '2rem', lineHeight: '1.6', color: 'var(--desc-text-color)' }}
                 dangerouslySetInnerHTML={{ __html: processedHtml }}
               />
             </article>

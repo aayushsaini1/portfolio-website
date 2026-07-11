@@ -1,14 +1,14 @@
 [
   {
     "title": "Apex Touch - watchOS App",
-    "description": "An Apple Watch (WatchOS) app which gets connected to F1 25 game and shows real time telemetry data on your wrist along with haptic feedback fro gear shifts and race events",
+    "description": "An Apple Watch (WatchOS) app which gets connected to F1 25 game and shows real time telemetry data on your wrist along with haptic feedback for gear shifts and race events",
     "tags": [
       "Swift UI",
       "WatchOS",
       "Game Data API"
     ],
     "link": "https://github.com/aayushsaini1/Apex-touch",
-    "image": "/work/experiments/apex-touch-thumb.jpg"
+    "image": "/work/experiments/Apex-touch-thumb.jpg"
   },
   {
     "title": "What's over my head",
