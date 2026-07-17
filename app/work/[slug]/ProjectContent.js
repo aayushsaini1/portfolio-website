@@ -4,6 +4,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import WorkHeader from '../../../components/WorkHeader';
 import ImageSlider from '../../../components/ImageSlider';
+import WorkInProgressBanner from '../../../components/WorkInProgressBanner';
 
 export default function ProjectContent({ project, htmlContent }) {
   const [activeId, setActiveId] = useState('');
@@ -78,11 +79,11 @@ export default function ProjectContent({ project, htmlContent }) {
     }
   };
 
-  // Parse processedHtml to split by the custom before-after-slider tag and render React component natively
+  // Parse processedHtml to split by custom tags and render React components natively
   const renderedParts = useMemo(() => {
     if (!processedHtml) return null;
 
-    const sliderRegex = /<div\s+class="before-after-slider"([^>]*)\s*><\/div>/gi;
+    const tagRegex = /<div\s+class="(before-after-slider|wip-banner-placeholder)"([^>]*)\s*><\/div>/gi;
     const getAttr = (str, attr) => {
       const match = new RegExp(`${attr}=["']([^"']*)["']`, 'i').exec(str);
       return match ? match[1] : '';
@@ -92,7 +93,7 @@ export default function ProjectContent({ project, htmlContent }) {
     let lastIndex = 0;
     let match;
 
-    while ((match = sliderRegex.exec(processedHtml)) !== null) {
+    while ((match = tagRegex.exec(processedHtml)) !== null) {
       const matchIndex = match.index;
       if (matchIndex > lastIndex) {
         parts.push({
@@ -101,18 +102,26 @@ export default function ProjectContent({ project, htmlContent }) {
         });
       }
 
-      const attrs = match[1];
-      parts.push({
-        type: 'slider',
-        before: getAttr(attrs, 'data-before'),
-        after: getAttr(attrs, 'data-after'),
-        beforeLabel: getAttr(attrs, 'data-before-label'),
-        afterLabel: getAttr(attrs, 'data-after-label'),
-        height: getAttr(attrs, 'data-height'),
-        aspectRatio: getAttr(attrs, 'data-aspect-ratio')
-      });
+      const className = match[1];
+      const attrs = match[2];
 
-      lastIndex = sliderRegex.lastIndex;
+      if (className === 'before-after-slider') {
+        parts.push({
+          type: 'slider',
+          before: getAttr(attrs, 'data-before'),
+          after: getAttr(attrs, 'data-after'),
+          beforeLabel: getAttr(attrs, 'data-before-label'),
+          afterLabel: getAttr(attrs, 'data-after-label'),
+          height: getAttr(attrs, 'data-height'),
+          aspectRatio: getAttr(attrs, 'data-aspect-ratio')
+        });
+      } else if (className === 'wip-banner-placeholder') {
+        parts.push({
+          type: 'wip-banner'
+        });
+      }
+
+      lastIndex = tagRegex.lastIndex;
     }
 
     if (lastIndex < processedHtml.length) {
@@ -214,6 +223,10 @@ export default function ProjectContent({ project, htmlContent }) {
                           height={part.height || undefined}
                           aspectRatio={part.aspectRatio || undefined}
                         />
+                      );
+                    } else if (part.type === 'wip-banner') {
+                      return (
+                        <WorkInProgressBanner key={index} />
                       );
                     }
                     return null;

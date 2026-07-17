@@ -608,7 +608,7 @@ ul {
 
 .project-image {
   aspect-ratio: 1;
-  background-color: #333;
+  background-color: var(--container-bg-color);
   margin-bottom: 1rem;
   /* 10px */
   position: relative;
@@ -950,7 +950,7 @@ html.dark .experiment-card:hover {
   border: 0.1rem solid var(--border-color);
   border-radius: 0.2rem;
   color: var(--muted-color);
-  background-color: rgba(0, 0, 0, 0.01);
+  background-color: var(--container-bg-color);
 }
 
 .not-found-home-btn:hover {
@@ -1536,4 +1536,83 @@ html.dark .experiment-card:hover {
 
 .custom-tooltip:hover::after {
   opacity: 1;
+}
+
+/* ============================================================
+   WORK IN PROGRESS BANNER (REBUILT)
+   ============================================================ */
+.wip-banner {
+  background-color: #FFE600;
+  color: #000000;
+  font-family: var(--font-mono), monospace;
+  margin: 4rem 0;
+  border-radius: 0.6rem;
+  border: 0.25rem solid #000000;
+  overflow: hidden;
+  box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.wip-stripe {
+  height: 2.2rem;
+  width: 100%;
+}
+
+.wip-stripe-top {
+  background: repeating-linear-gradient(
+    45deg,
+    #000000,
+    #000000 18px,
+    #FFE600 18px,
+    #FFE600 36px
+  );
+  border-bottom: 0.25rem solid #000000;
+  background-size: 50.91px 100%; /* 36px * sqrt(2) */
+  animation: hazard-slide-left 2s linear infinite;
+}
+
+.wip-stripe-bottom {
+  background: repeating-linear-gradient(
+    -45deg,
+    #000000,
+    #000000 18px,
+    #FFE600 18px,
+    #FFE600 36px
+  );
+  border-top: 0.25rem solid #000000;
+  background-size: 50.91px 100%; /* 36px * sqrt(2) */
+  animation: hazard-slide-right 2s linear infinite;
+}
+
+.wip-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 2.4rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  padding: 3rem 1.6rem;
+  background-color: #FFE600;
+  text-align: center;
+}
+
+@keyframes hazard-slide-left {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -50.91px 0;
+  }
+}
+
+@keyframes hazard-slide-right {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 50.91px 0;
+  }
 }

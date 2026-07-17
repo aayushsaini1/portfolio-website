@@ -1,5 +1,6 @@
 import { Space_Mono } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 
 import LayoutWrapper from "../components/LayoutWrapper";
 
@@ -20,26 +21,25 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <script
+      <head />
+      <body className={`${spaceMono.variable}`}>
+        <Script
+          id="theme-initializer"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('theme');
-                  var isDark = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
-                  if (isDark) {
-                    document.documentElement.classList.add('dark');
-                  } else {
-                    document.documentElement.classList.remove('dark');
-                  }
-                } catch (e) {}
-              })();
+              try {
+                var theme = localStorage.getItem('theme');
+                var isDark = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                if (isDark) {
+                  document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                }
+              } catch (e) {}
             `,
           }}
         />
-      </head>
-      <body className={`${spaceMono.variable}`}>
         <LayoutWrapper>
           {children}
         </LayoutWrapper>

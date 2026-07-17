@@ -137,7 +137,7 @@ export default function InteractiveDotMatrix() {
   if (!mounted) {
     return (
       <img
-        src="/dot-matrix.svg"
+        src="/portrait.webp"
         alt="Dot matrix portrait placeholder"
         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
       />
