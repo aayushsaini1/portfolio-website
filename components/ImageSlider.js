@@ -50,7 +50,7 @@ export default function ImageSlider({
         src={after} 
         alt={afterLabel} 
         fill
-        sizes="100vw"
+        sizes="(max-width: 768px) 100vw, 720px"
         style={{
           objectFit: 'cover',
           objectPosition: 'left top',
@@ -101,7 +101,7 @@ export default function ImageSlider({
             src={before} 
             alt={beforeLabel} 
             fill
-            sizes="100vw"
+            sizes="(max-width: 768px) 100vw, 720px"
             style={{
               objectFit: 'cover',
               objectPosition: 'left top',

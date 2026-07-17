@@ -24,12 +24,12 @@ export default function InteractiveDotMatrix() {
     canvas.height = 1443;
 
     const numDots = dotMatrixData.length;
-    
+
     // Arrays tracking state per dot
     const currentX = new Float32Array(numDots);
     const currentY = new Float32Array(numDots);
     const currentRadii = new Float32Array(numDots);
-    
+
     for (let i = 0; i < numDots; i++) {
       currentX[i] = dotMatrixData[i][0]; // original cx
       currentY[i] = dotMatrixData[i][1]; // original cy
@@ -63,12 +63,12 @@ export default function InteractiveDotMatrix() {
 
         if (dist < influenceRadius) {
           const proximity = 1 - (dist / influenceRadius); // 0 to 1
-          
+
           // Option 1: Horizontal Scanline/Block Slipping (Digital Signal Error)
           // Generates high-frequency row-based offsets so adjacent lines slip in opposite directions
-          const rowNoise = Math.sin(cy * 12) * Math.cos(cy * 3.8); 
+          const rowNoise = Math.sin(cy * 12) * Math.cos(cy * 3.8);
           const slipOffset = vel.x * proximity * rowNoise * 3.5; // Dramatic horizontal offset multiplier
-          
+
           targetX = cx + slipOffset;
           // Small vertical displacement to show trailing movement
           targetY = cy + vel.y * proximity * 0.4;
@@ -139,6 +139,7 @@ export default function InteractiveDotMatrix() {
       <img
         src="/portrait.webp"
         alt="Dot matrix portrait placeholder"
+        fetchPriority='high'
         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
       />
     );
