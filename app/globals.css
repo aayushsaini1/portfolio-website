@@ -1208,28 +1208,26 @@ html.dark .experiment-card:hover {
 }
 
 .wip-stripe-top {
-  background: repeating-linear-gradient(
-    45deg,
-    #000000,
-    #000000 18px,
-    #FFE600 18px,
-    #FFE600 36px
-  );
+  background: repeating-linear-gradient(45deg,
+      #000000,
+      #000000 18px,
+      #FFE600 18px,
+      #FFE600 36px);
   border-bottom: 0.25rem solid #000000;
-  background-size: 50.91px 100%; /* 36px * sqrt(2) */
+  background-size: 50.91px 100%;
+  /* 36px * sqrt(2) */
   animation: hazard-slide-left 2s linear infinite;
 }
 
 .wip-stripe-bottom {
-  background: repeating-linear-gradient(
-    -45deg,
-    #000000,
-    #000000 18px,
-    #FFE600 18px,
-    #FFE600 36px
-  );
+  background: repeating-linear-gradient(-45deg,
+      #000000,
+      #000000 18px,
+      #FFE600 18px,
+      #FFE600 36px);
   border-top: 0.25rem solid #000000;
-  background-size: 50.91px 100%; /* 36px * sqrt(2) */
+  background-size: 50.91px 100%;
+  /* 36px * sqrt(2) */
   animation: hazard-slide-right 2s linear infinite;
 }
 
@@ -1250,6 +1248,7 @@ html.dark .experiment-card:hover {
   from {
     background-position: 0 0;
   }
+
   to {
     background-position: -50.91px 0;
   }
@@ -1259,10 +1258,12 @@ html.dark .experiment-card:hover {
   from {
     background-position: 0 0;
   }
+
   to {
     background-position: 50.91px 0;
   }
 }
+
 /* ============================================================
    MOBILE & PORTRAIT TABLET — ≤ 1100px
    ============================================================ */
@@ -1601,6 +1602,12 @@ html.dark .experiment-card:hover {
     .hero-text h1 {
       font-size: 5rem;
       letter-spacing: -0.1rem;
+    }
+
+    .hero-text {
+      max-width: 100vw;
+      padding-left: 2.4rem;
+      padding-right: 2.4rem;
     }
 
     .hero-image-container {
