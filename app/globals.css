@@ -1054,22 +1054,11 @@ html.dark .experiment-card:hover {
 }
 
 /* ============================================================
-   TABLET — 769px to 1024px
+   MOBILE & PORTRAIT TABLET — ≤ 1100px
    ============================================================ */
-@media (max-width: 1024px) {
-  .hero-text h1 {
-    font-size: 6rem;
-  }
+@media (max-width: 1100px) {
 
-  .hero-image-container {
-    width: 30rem;
-    height: 40rem;
-  }
-
-  .about-text {
-    max-width: 48rem;
-  }
-
+  /* Keep project columns stacked for tablets and below */
   .project-toc-sidebar {
     display: none;
   }
@@ -1083,13 +1072,6 @@ html.dark .experiment-card:hover {
   .project-main-column {
     max-width: 720px;
   }
-}
-
-
-/* ============================================================
-   MOBILE — ≤ 768px
-   ============================================================ */
-@media (max-width: 768px) {
 
   /* --- Mobile sticky header --- */
   .mobile-header {
@@ -1166,7 +1148,8 @@ html.dark .experiment-card:hover {
     z-index: 999;
     transform: translateX(-100%);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    width: 70vw;
+    width: 75vw;
+    max-width: 75vw;
     overflow-y: auto;
     background: var(--bg-color);
   }
@@ -1230,20 +1213,26 @@ html.dark .experiment-card:hover {
 
   /* ---- Hero ---- */
   .hero-section {
-    flex-direction: column;
-    gap: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .hero-text {
+    flex: 1;
+    min-width: 0;
   }
 
   .hero-text h1 {
-    font-size: 5rem;
-    letter-spacing: -0.1rem;
+    font-size: 5.5rem;
+    letter-spacing: -0.15rem;
   }
 
   .hero-image-container {
-    width: 90vw;
-    height: 90vw;
-    order: -1;
-    /* portrait appears above text */
+    width: 30rem;
+    height: 38rem;
+    flex-shrink: 0;
   }
 
   .hero-role {
@@ -1360,7 +1349,7 @@ html.dark .experiment-card:hover {
   /* ---- Work / Projects grid ---- */
   .projects-grid {
     width: 100%;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 3rem;
   }
 
@@ -1388,8 +1377,33 @@ html.dark .experiment-card:hover {
   /* ---- Experiments mobile ---- */
   .experiments-grid {
     padding-left: 0;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
+  }
+
+  /* ---- Stack to 1 column on mobile viewports ---- */
+  @media (max-width: 768px) {
+    .hero-section {
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .hero-text h1 {
+      font-size: 5rem;
+      letter-spacing: -0.1rem;
+    }
+
+    .hero-image-container {
+      width: 90vw;
+      height: 90vw;
+      order: -1;
+      /* portrait appears above text */
+    }
+
+    .projects-grid,
+    .experiments-grid {
+      grid-template-columns: 1fr;
+    }
   }
 }
 
@@ -1444,7 +1458,8 @@ html.dark .experiment-card:hover {
 }
 
 .work-content-page .project-content em {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
+  margin-top: 0.4rem;
 }
 
 /* ============================================================

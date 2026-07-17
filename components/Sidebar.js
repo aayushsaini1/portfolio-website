@@ -252,37 +252,37 @@ export default function Sidebar() {
         <ul className="sidebar-nav">
           <li className={activeSection === 'home' ? 'active' : ''}>
             <a href="#home" onClick={(e) => { e.preventDefault(); scrollTo('home'); }}>
-              <span><span className="nav-num">00</span> home</span>
+              <span><span className="nav-num">00</span> Home</span>
               {activeSection !== 'home' && <span className="dot"></span>}
             </a>
           </li>
           <li className={activeSection === 'about' ? 'active' : ''}>
             <a href="#about" onClick={(e) => { e.preventDefault(); scrollTo('about'); }}>
-              <span><span className="nav-num">01</span> about</span>
+              <span><span className="nav-num">01</span> About</span>
               {activeSection !== 'about' && <span className="dot"></span>}
             </a>
           </li>
           <li className={activeSection === 'work' ? 'active' : ''}>
             <a href="#work" onClick={(e) => { e.preventDefault(); scrollTo('work'); }}>
-              <span><span className="nav-num">02</span> work</span>
+              <span><span className="nav-num">02</span> Work</span>
               {activeSection !== 'work' && <span className="dot"></span>}
             </a>
           </li>
           <li className={activeSection === 'experience' ? 'active' : ''}>
             <a href="#experience" onClick={(e) => { e.preventDefault(); scrollTo('experience'); }}>
-              <span><span className="nav-num">03</span> experience</span>
+              <span><span className="nav-num">03</span> Experience</span>
               {activeSection !== 'experience' && <span className="dot"></span>}
             </a>
           </li>
           <li className={activeSection === 'experiments' ? 'active' : ''}>
             <a href="#experiments" onClick={(e) => { e.preventDefault(); scrollTo('experiments'); }}>
-              <span><span className="nav-num">04</span> experiments</span>
+              <span><span className="nav-num">04</span> Experiments</span>
               {activeSection !== 'experiments' && <span className="dot"></span>}
             </a>
           </li>
           <li className={activeSection === 'contact' ? 'active' : ''}>
             <a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo('contact'); }}>
-              <span><span className="nav-num">05</span> contact</span>
+              <span><span className="nav-num">05</span> Contact</span>
               {activeSection !== 'contact' && <span className="dot"></span>}
             </a>
           </li>
@@ -290,7 +290,7 @@ export default function Sidebar() {
 
         <div className="sidebar-footer">
           <div className="sidebar-status">
-            <div>status:</div>
+            <div>Status:</div>
             <div className="status-row">
               <span className="status-indicator"></span>
               <span className="status-text">available for work</span>
@@ -298,13 +298,13 @@ export default function Sidebar() {
           </div>
 
           <div className="sidebar-timezone">
-            timezone:<br />
+            Timezone:<br />
             IST (UTC +5:30)<br />
             {mounted ? timeStr : '10:42:17'}
           </div>
 
           <div className="sidebar-copyright">
-            {"\u00A9"} 2026 aayush saini
+            {"\u00A9"} 2026 Aayush Saini
           </div>
         </div>
       </aside>

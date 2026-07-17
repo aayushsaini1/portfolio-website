@@ -16,7 +16,7 @@ export default function ProjectContent({ project, htmlContent }) {
     const updatedHtml = htmlContent.replace(/<h2[^>]*>(.*?)<\/h2>/gi, (match, content) => {
       // Strip any nested HTML tags to get pure text content for the heading
       const textContent = content.replace(/<[^>]*>/g, '').trim();
-      
+
       // Create a URL-safe lowercase id
       const id = textContent
         .toLowerCase()
@@ -42,7 +42,7 @@ export default function ProjectContent({ project, htmlContent }) {
     const handleScroll = () => {
       let currentActiveId = '';
       const threshold = 120; // offset for the sticky header
-      
+
       for (const heading of headings) {
         const el = document.getElementById(heading.id);
         if (el) {
@@ -143,7 +143,7 @@ export default function ProjectContent({ project, htmlContent }) {
         <div style={{ width: '100%', maxWidth: '1100px' }}>
           {/* Breadcrumb container */}
           <div className="work-breadcrumbs" style={{
-            fontSize: '1.8rem',
+            fontSize: '1.6rem',
             color: 'var(--muted-color)',
             marginBottom: '3rem'
           }}>
@@ -197,20 +197,20 @@ export default function ProjectContent({ project, htmlContent }) {
                   renderedParts.map((part, index) => {
                     if (part.type === 'html') {
                       return (
-                        <div 
-                          key={index} 
-                          dangerouslySetInnerHTML={{ __html: part.content }} 
-                          style={{ display: 'contents' }} 
+                        <div
+                          key={index}
+                          dangerouslySetInnerHTML={{ __html: part.content }}
+                          style={{ display: 'contents' }}
                         />
                       );
                     } else if (part.type === 'slider') {
                       return (
-                        <ImageSlider 
+                        <ImageSlider
                           key={index}
-                          before={part.before} 
-                          after={part.after} 
-                          beforeLabel={part.beforeLabel} 
-                          afterLabel={part.afterLabel} 
+                          before={part.before}
+                          after={part.after}
+                          beforeLabel={part.beforeLabel}
+                          afterLabel={part.afterLabel}
                           height={part.height || undefined}
                           aspectRatio={part.aspectRatio || undefined}
                         />
