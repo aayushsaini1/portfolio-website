@@ -1265,9 +1265,9 @@ html.dark .experiment-card:hover {
 }
 
 /* ============================================================
-   MOBILE & PORTRAIT TABLET — ≤ 1100px
+   MOBILE & PORTRAIT TABLET — ≤ 1200px
    ============================================================ */
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
 
   /* Keep project columns stacked for tablets and below */
   .project-toc-sidebar {
@@ -1471,19 +1471,9 @@ html.dark .experiment-card:hover {
     align-items: flex-start;
   }
 
-  .about-top-layout {
-    flex-direction: column;
-    gap: 3rem;
-  }
-
   .about-text {
     max-width: 100%;
     font-size: var(--font-size-base);
-  }
-
-  .about-graphic {
-    width: 100%;
-    height: 12rem;
   }
 
   /* ---- Stack / Tools (Experience graphic column) ---- */
@@ -1573,8 +1563,9 @@ html.dark .experiment-card:hover {
 
   /* ---- Bottom bar ---- */
   .bottom-bar {
-    flex-direction: column;
-    gap: 0.8rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
     padding: 2rem;
   }
 
@@ -1620,6 +1611,34 @@ html.dark .experiment-card:hover {
     .projects-grid,
     .experiments-grid {
       grid-template-columns: 1fr;
+    }
+
+    .about-top-layout {
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .about-graphic {
+      width: 100%;
+      height: 12rem;
+    }
+  }
+
+  /* ---- Portrait orientation styles (e.g. iPad portrait) ---- */
+  @media (orientation: portrait) and (min-width: 768px) {
+    .section {
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+
+    .mobile-header {
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+
+    .bottom-bar {
+      padding-left: 10%;
+      padding-right: 10%;
     }
   }
 }
