@@ -916,7 +916,7 @@ html.dark .experiment-card:hover {
 }
 
 .experiment-card-body {
-  padding: 2.5rem 2rem;
+  padding: 2.4rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1552,7 +1552,7 @@ html.dark .experiment-card:hover {
   .projects-grid {
     width: 100%;
     grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
+    gap: 4rem;
   }
 
   /* ---- Contact footer ---- */
@@ -1565,9 +1565,12 @@ html.dark .experiment-card:hover {
   /* ---- Bottom bar ---- */
   .bottom-bar {
     flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    padding: 2rem;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 2rem 1rem;
+    font-size: 1.2rem;
   }
 
   /* ---- Client Ticker mobile width ---- */

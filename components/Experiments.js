@@ -38,7 +38,7 @@ export default function Experiments({ data }) {
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'flex-start',
-                    marginBottom: '1.5rem'
+                    marginBottom: '1.2rem'
                   }}>
                     <h3 className="experiment-title">
                       {item.title}
