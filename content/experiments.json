@@ -17,7 +17,7 @@
       "Next Js",
       "Open Sky API"
     ],
-    "link": "https://github.com/aayushsaini1/whats-over-my-head",
+    "link": "https://whats-over-my-head.vercel.app",
     "image": "/work/experiments/whats-over-my-head.webp"
   },
   {
@@ -28,7 +28,7 @@
       "Three js",
       "Stock Market API"
     ],
-    "link": "https://github.com/aayushsaini1/bull-bear-bonsai",
+    "link": "https://b3tree.vercel.app",
     "image": "/work/experiments/bull-bear-bonsai.webp"
   }
 ]

@@ -34,5 +34,14 @@
     "company": "Loconav",
     "year": "2022",
     "slug": "loconav-whitelabel"
+  },
+  {
+    "number": "05",
+    "title": "Organizing the Unorganized Sector",
+    "link": "#",
+    "image": "/work/loconav-tyre/manage-tyres.webp",
+    "company": "Loconav",
+    "year": "2023",
+    "slug": "loconav-tyre"
   }
 ]

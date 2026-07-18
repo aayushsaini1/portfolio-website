@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import MazeAnimation from './MazeAnimation';
 
 export default function Work({ data }) {
   if (!data) return null;
@@ -17,9 +18,9 @@ export default function Work({ data }) {
             <Link key={index} href={`/work/${project.slug}`} className="project-card">
               <div className="project-image">
                 {project.image ? (
-                  <Image 
-                    src={project.image} 
-                    alt={project.title} 
+                  <Image
+                    src={project.image}
+                    alt={project.title}
                     className="project-image-inner"
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -38,11 +39,12 @@ export default function Work({ data }) {
               </div>
             </Link>
           ))}
+          <MazeAnimation />
         </div>
 
-        <div className="accent-block" style={{ width: '150px', display: 'flex', justifyContent: 'center', alignItems: 'center', alignSelf: 'flex-end' }}>
+        {/* <div className="accent-block" style={{ width: '150px', display: 'flex', justifyContent: 'center', alignItems: 'center', alignSelf: 'flex-end' }}>
           <div style={{ color: 'white', textAlign: 'center' }}>[ OB-4<br />PLACEHOLDER ]</div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

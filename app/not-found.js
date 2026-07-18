@@ -18,7 +18,7 @@ export default function NotFound() {
       overflow: 'hidden'
     }}>
       {/* Header showing barcode logo and theme toggle */}
-      <WorkHeader />
+      {/* <WorkHeader /> */}
 
       {/* Interactive Globe Container */}
       <div style={{

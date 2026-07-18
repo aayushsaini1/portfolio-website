@@ -22,8 +22,8 @@ export default function ClientTicker() {
 
   return (
     <div className="client-ticker-container" style={{
-      width: '100%',
-      maxWidth: '60rem', // 600px max width limit
+      width: '99%',
+      maxWidth: '48rem', // 480px max width limit
       overflow: 'hidden',
       position: 'relative',
       padding: '2rem 0',

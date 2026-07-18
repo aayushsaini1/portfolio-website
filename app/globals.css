@@ -482,11 +482,11 @@ ul {
 }
 
 .experience-container {
-  border-top: 0.1rem solid var(--border-color);
+  border-bottom: 0.1rem solid var(--border-color);
 }
 
 .experience-container:last-child {
-  border-bottom: 0.1rem solid var(--border-color);
+  border-bottom: none;
 }
 
 .experience-item {
@@ -510,16 +510,17 @@ ul {
   flex: 1;
 }
 
-.exp-arrow {
+/* .exp-arrow {
   width: 2rem;
-  /* 20px */
-  text-align: center;
-  flex-shrink: 0;
-}
+  20px
+text-align: center;
+flex-shrink: 0;
+*/
 
 .exp-company {
   font-weight: bold;
   width: 15rem;
+  margin-left: 2rem;
   /* 150px */
   flex-shrink: 0;
 }
@@ -565,7 +566,7 @@ ul {
 }
 
 .exp-description {
-  margin-left: 20rem;
+  margin-left: 18rem;
   /* 20px (arrow) + 15px (gap) + 150px (company) + 15px (gap) = 200px = 20rem */
   padding-bottom: 2rem;
   /* 20px */
@@ -607,7 +608,7 @@ ul {
 }
 
 .project-image {
-  aspect-ratio: 1;
+  aspect-ratio: 4/3;
   background-color: var(--container-bg-color);
   margin-bottom: 1rem;
   /* 10px */
@@ -1194,7 +1195,6 @@ html.dark .experiment-card:hover {
   color: #000000;
   font-family: var(--font-mono), monospace;
   margin: 4rem 0;
-  border-radius: 0.6rem;
   border: 0.25rem solid #000000;
   overflow: hidden;
   box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.08);
@@ -1497,17 +1497,17 @@ html.dark .experiment-card:hover {
 
   .exp-left {
     width: 100%;
-    gap: 1rem;
   }
 
   .exp-company {
     width: auto;
+    margin-left: 0;
   }
 
   .exp-right {
     width: 100%;
     justify-content: space-between;
-    padding-left: 3rem;
+    /* padding-left: 3rem; */
     /* align with company text */
   }
 

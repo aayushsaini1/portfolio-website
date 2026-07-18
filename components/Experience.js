@@ -30,7 +30,7 @@ export default function Experience({ data }) {
                   style={{ cursor: 'pointer', userSelect: 'none' }}
                 >
                   <div className="exp-left">
-                    <div className="exp-arrow" style={{ color: exp.hasArrow ? 'var(--accent-color)' : 'transparent' }}>↓</div>
+                    {/* <div className="exp-arrow" style={{ color: exp.hasArrow ? 'var(--accent-color)' : 'transparent' }}>↓</div> */}
                     <div className="exp-company">{exp.company}</div>
                     <div className="exp-role">{exp.role}</div>
                   </div>

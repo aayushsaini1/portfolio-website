@@ -8,8 +8,7 @@ export default function Footer() {
       <Link href="https://antigravity.google" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>ANTIGRAVITY</Link>
       <div>COFFEE</div>
       <div>AND</div>
-      <div>TOKENS</div>
-      <div><span style={{ color: 'var(--text-color)', fontSize: '16px' }}>■</span></div>
+      <div>TOKENS<span style={{ color: 'var(--text-color)', fontSize: '16px', marginLeft: '16px' }}>■</span></div>
     </footer>
   );
 }
