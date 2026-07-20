@@ -289,13 +289,13 @@ export default function Sidebar() {
         </ul>
 
         <div className="sidebar-footer">
-          <div className="sidebar-status">
+          {/* <div className="sidebar-status">
             <div>Status:</div>
             <div className="status-row">
               <span className="status-indicator"></span>
               <span className="status-text">available for work</span>
             </div>
-          </div>
+          </div> */}
 
           <div className="sidebar-timezone">
             Timezone:<br />
