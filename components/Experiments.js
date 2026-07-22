@@ -44,16 +44,16 @@ export default function Experiments({ data }) {
                       {item.title}
                     </h3>
                     <svg
-                      width="14"
-                      height="14"
+                      width="16"
+                      height="16"
                       viewBox="0 0 24 24"
                       fill="none"
-                      stroke="var(--muted-color)"
-                      strokeWidth="2.5"
+                      stroke="currentColor"
+                      strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       className="experiment-arrow"
-                      style={{ transition: 'transform 0.3s ease, stroke 0.3s ease', marginTop: '0.4rem' }}
+                      style={{ marginTop: '0.2rem' }}
                     >
                       <line x1="7" y1="17" x2="17" y2="7" />
                       <polyline points="7 7 17 7 17 17" />

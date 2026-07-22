@@ -627,7 +627,7 @@ flex-shrink: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.2s ease;
+  transition: transform 0.4s ease;
 }
 
 .project-placeholder-inner {
@@ -650,6 +650,10 @@ flex-shrink: 0;
   padding: 4px;
   /* Draws the accent stroke on the outer boundary of the frame */
   border-color: var(--accent-color);
+}
+
+.project-card:hover .project-image-inner {
+  transform: scale(1.02);
 }
 
 .project-meta-top {
@@ -889,9 +893,17 @@ html.dark .experiment-card:hover {
   text-decoration: underline;
 }
 
+.experiment-arrow {
+  color: var(--muted-color);
+  stroke: var(--muted-color);
+  transition: transform 0.3s ease, stroke 0.3s ease, color 0.3s ease;
+  flex-shrink: 0;
+}
+
 .experiment-card:hover .experiment-arrow {
   transform: translate(0.2rem, -0.2rem);
   stroke: var(--accent-color);
+  color: var(--accent-color);
 }
 
 .experiment-image-container {
@@ -908,11 +920,13 @@ html.dark .experiment-card:hover {
   height: 100%;
   object-fit: cover;
   object-position: top;
-  transition: transform 0.3s ease;
+  filter: grayscale(100%);
+  transition: transform 0.4s ease, filter 0.4s ease;
 }
 
 .experiment-card:hover .experiment-image {
   transform: scale(1.05);
+  filter: grayscale(0%);
 }
 
 .experiment-card-body {
@@ -1238,11 +1252,66 @@ html.dark .experiment-card:hover {
   justify-content: center;
   font-weight: 900;
   font-size: 2.4rem;
-  letter-spacing: 0.35em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   padding: 3rem 1.6rem;
   background-color: #FFE600;
   text-align: center;
+  white-space: nowrap;
+}
+
+.wip-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+}
+
+.wip-link {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.wip-link:hover {
+  color: var(--accent-color) !important;
+  text-decoration: underline !important;
+}
+
+@media (max-width: 768px) {
+  .wip-content {
+    font-size: 1.4rem;
+    letter-spacing: 0.16em;
+    padding: 2rem 1rem;
+  }
+
+  .wip-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-right: 0.8rem;
+  }
+
+  .wip-stripe {
+    height: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .wip-content {
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    padding: 1.6rem 0.6rem;
+  }
+
+  .wip-icon {
+    width: 1.4rem;
+    height: 1.4rem;
+    margin-right: 0.5rem;
+  }
+
+  .wip-stripe {
+    height: 1.4rem;
+  }
 }
 
 @keyframes hazard-slide-left {

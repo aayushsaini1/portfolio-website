@@ -3,7 +3,7 @@
     "number": "01",
     "title": "Automating the identity governance platform",
     "link": "#",
-    "image": "/work/josys-policy/cover.webp",
+    "image": "/work/josys-policy/policy-cover.webp",
     "company": "Josys",
     "year": "2026",
     "slug": "josys-policy"
@@ -12,7 +12,7 @@
     "number": "02",
     "title": "Action Center: One stop for every action that IT admin have to take",
     "link": "#",
-    "image": "",
+    "image": "/work/josys-action-center/action-center-cover.webp",
     "company": "Josys",
     "year": "2026",
     "slug": "josys-action-center"
@@ -21,7 +21,7 @@
     "number": "03",
     "title": "How we redefined the ux of fleet tech industry",
     "link": "#",
-    "image": "/work/loconav-vt/VT-cover.webp",
+    "image": "/work/loconav-vt/vt-cover-new.webp",
     "company": "Loconav",
     "year": "2023",
     "slug": "loconav-vt"
@@ -39,7 +39,7 @@
     "number": "05",
     "title": "Organizing the Unorganized Sector",
     "link": "#",
-    "image": "/work/loconav-tyre/manage-tyres.webp",
+    "image": "/work/loconav-tyre/tyre-cover.webp",
     "company": "Loconav",
     "year": "2023",
     "slug": "loconav-tyre"
