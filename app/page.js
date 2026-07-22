@@ -16,24 +16,13 @@ import {
 
 export async function generateMetadata() {
   const heroData = getHeroData();
-  const aboutData = getAboutData();
-
-  // Helper to convert string to Title Case
-  const toTitleCase = (str) =>
-    str
-      .toLowerCase()
-      .split(' ')
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
-
-  const formattedTitle = toTitleCase(heroData.title.replace(/\n/g, ' '));
 
   return {
-    title: `${formattedTitle} - ${heroData.subtitle}`,
-    description: aboutData.content,
+    title: "Aayush Saini — Lead UX Designer in Bangalore",
+    description: "Portfolio of Aayush Saini, Lead UX Designer & Product Designer based in Bangalore, India. Designing practical, accessible B2B SaaS experiences & digital products.",
     openGraph: {
-      title: `${formattedTitle} | Portfolio`,
-      description: aboutData.content,
+      title: "Aayush Saini — Lead UX Designer in Bangalore",
+      description: "Portfolio of Aayush Saini, Lead UX Designer & Product Designer based in Bangalore, India.",
       type: 'website',
     },
   };
