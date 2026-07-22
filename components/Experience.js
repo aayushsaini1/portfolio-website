@@ -21,13 +21,13 @@ export default function Experience({ data }) {
 
         <div className="experience-list" style={{ flex: 1 }}>
           {data.map((exp, index) => {
-            const isExpanded = expandedIndex === index;
+            // Accordion capability temporarily disabled
+            // const isExpanded = expandedIndex === index;
             return (
               <div key={index} className="experience-container" style={{ position: 'relative', zIndex: 5 }}>
                 <div
                   className="experience-item"
-                  onClick={() => toggleExpand(index)}
-                  style={{ cursor: 'pointer', userSelect: 'none' }}
+                  style={{ userSelect: 'none' }}
                 >
                   <div className="exp-left">
                     {/* <div className="exp-arrow" style={{ color: exp.hasArrow ? 'var(--accent-color)' : 'transparent' }}>↓</div> */}
@@ -36,17 +36,19 @@ export default function Experience({ data }) {
                   </div>
                   <div className="exp-right">
                     <div className="exp-date" style={exp.date === '—' ? { color: 'black' } : {}}>{exp.date}</div>
-                    <div className="exp-plus-btn" style={{ transition: 'color 0.2s ease' }}>{isExpanded ? '—' : '+'}</div>
+                    {/* Accordion plus button hidden for now */}
+                    {/* <div className="exp-plus-btn" style={{ transition: 'color 0.2s ease' }}>{isExpanded ? '—' : '+'}</div> */}
                   </div>
                 </div>
-                <div className={`exp-description-wrapper ${isExpanded ? 'expanded' : ''}`} style={{ position: 'relative', zIndex: 4 }}>
+                {/* Accordion description hidden for now */}
+                {/* <div className={`exp-description-wrapper ${isExpanded ? 'expanded' : ''}`} style={{ position: 'relative', zIndex: 4 }}>
                   {exp.descriptionHtml && (
                     <div
                       className="exp-description"
                       dangerouslySetInnerHTML={{ __html: exp.descriptionHtml }}
                     />
                   )}
-                </div>
+                </div> */}
               </div>
             );
           })}

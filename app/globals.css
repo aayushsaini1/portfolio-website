@@ -478,10 +478,11 @@ ul {
   display: flex;
   flex-direction: column;
   max-width: 80rem;
-  /* 800px */
+  width: 100%;
 }
 
 .experience-container {
+  width: 100%;
   border-bottom: 0.1rem solid var(--border-color);
 }
 
