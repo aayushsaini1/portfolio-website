@@ -1,6 +1,8 @@
 import { Space_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import LayoutWrapper from "../components/LayoutWrapper";
 
@@ -43,6 +45,8 @@ export default function RootLayout({ children }) {
         <LayoutWrapper>
           {children}
         </LayoutWrapper>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
