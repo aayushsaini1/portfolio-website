@@ -32,6 +32,13 @@ With Policies and auotmations you can define a policy and detect the anomaly -- 
 <div class="wip-banner-placeholder"></div>
 
 <!--
+## Why Access Policy -> Policies and Anomalies
+earlier we created access policy for policy creaiton but usme sift access related policies thi, that was limiting and upar se workflows were separate but acted as a bridge.
+
+Later we realised that we have to enforce the behavior change for user to force create policy and then workflows. hence we went with policies and automations.
+
+
+
 ## 4. What Changed?
 
 Earlier we had 'Access Policy' and 'Workflows' as separate modules. We realized that both work in conjunction and hence decided to combine those into a more comprehensive and powerful 'Policy and Automations' module.
