@@ -1,6 +1,13 @@
+"use client";
+
 import React from 'react';
-import InteractiveDotMatrix from './InteractiveDotMatrix';
+import dynamic from 'next/dynamic';
 import ClientTicker from './ClientTicker';
+
+const InteractiveDotMatrix = dynamic(() => import('./InteractiveDotMatrix'), {
+  ssr: false,
+  loading: () => <div style={{ minHeight: '300px' }} />
+});
 
 export default function Hero({ data }) {
   if (!data) return null;
