@@ -29,6 +29,22 @@ Each company have various rules and regulations and IT admins can define certain
 With Policies and auotmations you can define a policy and detect the anomaly -- who is not following the rules and basis of that you can take action or automate the actions to be taken incase of policy detecttion.
 
 
+
+<figure style="margin: 2rem 0; text-align: center;">
+  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 1.2rem; background: var(--container-bg-color, #1a1a1a);">
+    <iframe 
+      src="https://www.youtube-nocookie.com/embed/pDbSLgPqu2M" 
+      title="Josys - Product Feature Video - Policy Driven Autonomous Governance" 
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      allowfullscreen>
+    </iframe>
+  </div>
+  <figcaption style="margin-top: 0.8rem; font-size: 1.4rem; color: var(--text-color-secondary, #888); font-style: italic;">
+    Josys - Product Feature Video - Policy Driven Autonomous Governance
+  </figcaption>
+</figure>
+
 <div class="wip-banner-placeholder"></div>
 
 <!--
