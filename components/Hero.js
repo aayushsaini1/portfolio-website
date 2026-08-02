@@ -83,7 +83,7 @@ export default function Hero({ data }) {
                 <circle cx="4" cy="4" r="2"></circle>
               </svg>
             </i>
-            <a href={`https://${data.linkedin}`} target="_blank" rel="noopener noreferrer">{data.linkedin}</a>
+            <a href={data.linkedinUrl || "https://linkedin.com/in/aayushsaini"} target="_blank" rel="noopener noreferrer">{data.linkedin || "/aayushsaini"}</a>
           </div>
         </div>
         <ClientTicker />
