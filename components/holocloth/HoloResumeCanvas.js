@@ -242,18 +242,19 @@ export default function HoloResumeCanvas() {
       {/* Loading Overlay */}
       {!loaderGone && (
         <div
-          className={`fixed inset-0 z-50 grid place-items-center bg-[#0b0c12] transition-opacity duration-500 ${assetsReady ? 'opacity-0 pointer-events-none' : 'opacity-100'
+          className={`fixed inset-0 z-50 grid place-items-center transition-opacity duration-500 ${assetsReady ? 'opacity-0 pointer-events-none' : 'opacity-100'
             }`}
+          style={{ backgroundColor: 'var(--bg-color)' }}
         >
           <div className="flex flex-col items-center gap-4">
-            <div className="relative w-20 h-20 grid place-items-center">
+            <div className="relative w-16 h-16 grid place-items-center">
               <svg className="w-full h-full -rotate-90" viewBox="0 0 72 72">
                 <circle
                   cx="36"
                   cy="36"
                   r="28"
                   fill="none"
-                  stroke="rgba(255,255,255,0.08)"
+                  stroke="rgba(128,128,128,0.15)"
                   strokeWidth="3"
                 />
                 <circle
@@ -269,12 +270,12 @@ export default function HoloResumeCanvas() {
                   className="transition-[stroke-dashoffset] duration-150 ease-linear"
                 />
               </svg>
-              <span className="absolute text-xs font-mono text-neutral-300 font-semibold">
+              <span className="absolute text-xs font-mono text-[var(--text-color)] font-medium">
                 {Math.round(loadPercent)}%
               </span>
             </div>
-            <span className="text-xs font-mono text-neutral-400 uppercase tracking-widest animate-pulse">
-              Simulating Holographic Cloth...
+            <span className="text-xs font-mono text-[var(--muted-color,#888888)] tracking-wider animate-pulse">
+              loading file...
             </span>
           </div>
         </div>
