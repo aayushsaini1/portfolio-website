@@ -45,6 +45,9 @@ With Policies and auotmations you can define a policy and detect the anomaly -- 
   </figcaption>
 </figure>
 
+## Outcome so far
+Since the revamp and launch of Policy and Automations, we have scored enterprise deals. (Can't give more details publically, as rollout is still happening)
+
 <div class="wip-banner-placeholder"></div>
 
 <!--

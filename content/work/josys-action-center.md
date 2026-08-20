@@ -39,7 +39,11 @@ A single, central hub that surfaces every action available across the Josys plat
 
 As Josys expanded across policy automation, app management, and identity governance, actions relevant to admins started showing up scattered across modules. Action Center exists to pull these into a single, prioritized queue — grouped by type (anomalies, approvals, tasks, etc.) rather than by source module
 
+## Impact
+As the feature is not globally rolled out yet, the initial feedback from users is quite positive. and we are integrating all the different action areas into the action center to keep it truly one stop solution for every action. (Can't give more details publically, as rollout is still happening)
+
 ---
+
 <div class="wip-banner-placeholder"></div>
 
 

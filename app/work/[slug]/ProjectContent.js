@@ -150,22 +150,22 @@ export default function ProjectContent({ project, htmlContent }) {
       }}>
         {/* Constrained layout container aligning breadcrumbs and content together */}
         <div style={{ width: '100%', maxWidth: '1100px' }}>
-          {/* Breadcrumb container */}
-          <div className="work-breadcrumbs" style={{
-            fontSize: '1.6rem',
-            color: 'var(--muted-color)',
-            marginBottom: '3rem'
-          }}>
-            <Link href="/" style={{ color: 'inherit', textDecoration: 'underline' }} onMouseEnter={(e) => e.target.style.color = 'var(--accent-color)'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>
-              /home
-            </Link>
-            <span>/project-details.html</span>
-          </div>
-
           <div className="project-layout">
             {/* Sticky Table of Contents sidebar */}
             {headings.length > 0 && (
               <aside className="project-toc-sidebar">
+                {/* Breadcrumb container sticky with sidebar */}
+                <div className="work-breadcrumbs" style={{
+                  fontSize: '1.6rem',
+                  color: 'var(--muted-color)',
+                  marginBottom: '1.6rem'
+                }}>
+                  <Link href="/" style={{ color: 'inherit', textDecoration: 'underline' }} onMouseEnter={(e) => e.target.style.color = 'var(--accent-color)'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>
+                    /home
+                  </Link>
+                  <span>/project-details</span>
+                </div>
+
                 <div className="project-toc-title">INDEX</div>
                 <nav className="project-toc-list">
                   {headings.map((heading) => (

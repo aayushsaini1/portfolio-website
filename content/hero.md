@@ -6,7 +6,7 @@ email: "aayushsaini.77@gmail.com"
 location: "Bangalore, India"
 twitter: "@aayushsaini_"
 twitterUrl: "https://x.com/aayushsaini_"
-linkedin: "/aayushsaini"
+linkedin: "aayushsaini"
 linkedinUrl: "https://linkedin.com/in/aayushsaini"
 ---
 

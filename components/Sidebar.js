@@ -246,7 +246,6 @@ export default function Sidebar() {
               </button>
             </div>
           </div>
-          <div style={{ fontSize: 'var(--font-size-xs)', marginTop: '0.5rem' }}>alpher03</div>
         </div>
 
         <ul className="sidebar-nav">
