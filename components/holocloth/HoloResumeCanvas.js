@@ -170,7 +170,7 @@ export default function HoloResumeCanvas() {
         }}
         className={`font-mono transition-all duration-500 ${assetsReady ? 'opacity-100' : 'opacity-0'}`}
       >
-        Drag the resume
+        Click/Touch to Drag
       </div>
 
       {/* Sticky Bottom Edge Footer */}
@@ -206,7 +206,7 @@ export default function HoloResumeCanvas() {
             }}
             className="hover:text-white transition-colors"
           >
-            [Reset Cloth]
+            [Reset]
           </button>
           <span className="text-emerald-400 font-semibold">{fps} FPS</span>
         </div>
