@@ -1,5 +1,3 @@
-@import url("https://cdn.jsdelivr.net/fontsource/fonts/google-sans:vf@latest/latin-wght-normal.css");
-
 html {
   font-size: 62.5%;
   /* 1rem = 10px */
@@ -1075,7 +1073,7 @@ html.dark .experiment-card:hover {
    WORK DETAIL PAGES TYPOGRAPHY
    ============================================================ */
 .work-content-page {
-  font-family: "Inter", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 /* Override back to Space Mono for headings, captions, indices, etc. */

@@ -1,24 +1,20 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { dotMatrixData } from './dotMatrixData';
+import { observeAnimationVisibility } from '../lib/observeAnimationVisibility';
 
 export default function InteractiveDotMatrix() {
   const canvasRef = useRef(null);
-  const [mounted, setMounted] = useState(false);
   const mouseRef = useRef({ x: -2000, y: -2000 });
   const velocityRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     let animationFrameId;
+    let isRunning = false;
 
     canvas.width = 1079;
     canvas.height = 1443;
@@ -96,10 +92,8 @@ export default function InteractiveDotMatrix() {
         ctx.fill();
       }
 
-      animationFrameId = requestAnimationFrame(draw);
+      if (isRunning) animationFrameId = requestAnimationFrame(draw);
     };
-
-    draw();
 
     const handleMouseMove = (e) => {
       const rect = canvas.getBoundingClientRect();
@@ -126,24 +120,25 @@ export default function InteractiveDotMatrix() {
 
     canvas.addEventListener('mousemove', handleMouseMove);
     canvas.addEventListener('mouseleave', handleMouseLeave);
+    const stopObserving = observeAnimationVisibility(canvas, (isVisible) => {
+      if (isVisible === isRunning) return;
+      isRunning = isVisible;
+      if (isRunning) {
+        draw();
+      } else {
+        cancelAnimationFrame(animationFrameId);
+        handleMouseLeave();
+      }
+    });
 
     return () => {
+      isRunning = false;
       cancelAnimationFrame(animationFrameId);
+      stopObserving();
       canvas.removeEventListener('mousemove', handleMouseMove);
       canvas.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, [mounted]);
-
-  if (!mounted) {
-    return (
-      <img
-        src="/portrait.webp"
-        alt="Dot matrix portrait placeholder"
-        fetchPriority='high'
-        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-      />
-    );
-  }
+  }, []);
 
   return (
     <canvas

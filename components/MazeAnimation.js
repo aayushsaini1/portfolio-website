@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from 'react';
+import { observeAnimationVisibility } from '../lib/observeAnimationVisibility';
 
 export default function MazeAnimation() {
   const containerRef = useRef(null);
@@ -15,6 +16,7 @@ export default function MazeAnimation() {
 
     let animationFrameId;
     let resizeTimeout;
+    let isRunning = false;
 
     // Maze configuration
     const cols = 12;
@@ -374,12 +376,17 @@ export default function MazeAnimation() {
       }
 
       ctx.restore();
-      animationFrameId = requestAnimationFrame(tick);
+      if (isRunning) animationFrameId = requestAnimationFrame(tick);
     }
 
     initMaze();
     resizeCanvas();
-    tick();
+    const stopObserving = observeAnimationVisibility(canvas, (isVisible) => {
+      if (isVisible === isRunning) return;
+      isRunning = isVisible;
+      if (isRunning) tick();
+      else cancelAnimationFrame(animationFrameId);
+    });
 
     // Resize handler
     const handleResize = () => {
@@ -392,7 +399,9 @@ export default function MazeAnimation() {
     window.addEventListener('resize', handleResize);
 
     return () => {
+      isRunning = false;
       cancelAnimationFrame(animationFrameId);
+      stopObserving();
       window.removeEventListener('resize', handleResize);
       clearTimeout(resizeTimeout);
     };

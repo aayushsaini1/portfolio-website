@@ -1,22 +1,17 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
+import { observeAnimationVisibility } from '../lib/observeAnimationVisibility';
 
 export default function AboutGraphic() {
   const canvasRef = useRef(null);
 
-  const [mounted, setMounted] = useState(false);
-
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     let animationFrameId;
+    let isRunning = false;
     let time = 0;
 
     const resizeCanvas = () => {
@@ -101,15 +96,21 @@ export default function AboutGraphic() {
       }
       ctx.stroke();
 
-      animationFrameId = requestAnimationFrame(draw);
+      if (isRunning) animationFrameId = requestAnimationFrame(draw);
     };
-
-    draw();
+    const stopObserving = observeAnimationVisibility(canvas, (isVisible) => {
+      if (isVisible === isRunning) return;
+      isRunning = isVisible;
+      if (isRunning) draw();
+      else cancelAnimationFrame(animationFrameId);
+    });
 
     return () => {
+      isRunning = false;
       cancelAnimationFrame(animationFrameId);
+      stopObserving();
     };
-  }, [mounted]);
+  }, []);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', width: '30rem' }}>

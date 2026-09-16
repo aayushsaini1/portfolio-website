@@ -3,9 +3,30 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { HoloApp } from './scene.js';
 
-function loadImageWithProgress(url, onProgress) {
+function loadImageWithProgress(url, onProgress, signal) {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
+    let blobUrl;
+    let img;
+    const cleanup = () => {
+      signal.removeEventListener('abort', abort);
+      if (blobUrl) URL.revokeObjectURL(blobUrl);
+    };
+    const fail = (error) => {
+      cleanup();
+      reject(error);
+    };
+    const abort = () => {
+      xhr.abort();
+      if (img) {
+        img.onload = null;
+        img.onerror = null;
+        img.src = '';
+      }
+      fail(new DOMException('Image load cancelled', 'AbortError'));
+    };
+    if (signal.aborted) return abort();
+    signal.addEventListener('abort', abort, { once: true });
     xhr.open('GET', url, true);
     xhr.responseType = 'blob';
     xhr.onprogress = (e) => {
@@ -13,22 +34,21 @@ function loadImageWithProgress(url, onProgress) {
     };
     xhr.onload = () => {
       if (xhr.status < 200 || xhr.status >= 300) {
-        reject(new Error(`${url}: HTTP ${xhr.status}`));
+        fail(new Error(`${url}: HTTP ${xhr.status}`));
         return;
       }
-      const blobUrl = URL.createObjectURL(xhr.response);
-      const img = new Image();
+      blobUrl = URL.createObjectURL(xhr.response);
+      img = new Image();
       img.onload = () => {
-        URL.revokeObjectURL(blobUrl);
+        cleanup();
         resolve(img);
       };
       img.onerror = () => {
-        URL.revokeObjectURL(blobUrl);
-        reject(new Error(`${url}: decode failed`));
+        fail(new Error(`${url}: decode failed`));
       };
       img.src = blobUrl;
     };
-    xhr.onerror = () => reject(new Error(`${url}: network error`));
+    xhr.onerror = () => fail(new Error(`${url}: network error`));
     xhr.send();
   });
 }
@@ -47,6 +67,8 @@ export default function HoloResumeCanvas() {
     const app = new HoloApp(hostRef.current);
     appRef.current = app;
     app.onFpsUpdate = (val) => setFps(val);
+    const controller = new AbortController();
+    let loaderTimeout;
 
     const assets = [
       { url: '/resume-texture.png', loaded: 0, total: 0, done: false },
@@ -54,6 +76,7 @@ export default function HoloResumeCanvas() {
     ];
 
     const report = () => {
+      if (controller.signal.aborted) return;
       const total = assets.reduce((s, a) => s + a.total, 0);
       const loaded = assets.reduce((s, a) => s + a.loaded, 0);
       const pct = total > 0
@@ -68,7 +91,7 @@ export default function HoloResumeCanvas() {
           a.loaded = loaded;
           a.total = total;
           report();
-        }).then((img) => {
+        }, controller.signal).then((img) => {
           a.done = true;
           a.loaded = a.total || a.loaded;
           report();
@@ -83,14 +106,15 @@ export default function HoloResumeCanvas() {
         setLoadPercent(100);
         app.reveal();
         setAssetsReady(true);
-        setTimeout(() => setLoaderGone(true), 550);
+        loaderTimeout = setTimeout(() => setLoaderGone(true), 550);
       })
       .catch((err) => {
+        if (controller.signal.aborted) return;
         console.error('[HoloResumeCanvas] asset load failed', err);
         if (appRef.current !== app) return;
         app.reveal();
         setAssetsReady(true);
-        setTimeout(() => setLoaderGone(true), 550);
+        loaderTimeout = setTimeout(() => setLoaderGone(true), 550);
       });
 
     const updateThemeBackground = () => {
@@ -111,6 +135,8 @@ export default function HoloResumeCanvas() {
     observer.observe(document.documentElement, { attributes: true });
 
     return () => {
+      controller.abort();
+      clearTimeout(loaderTimeout);
       observer.disconnect();
       app.dispose();
       appRef.current = null;

@@ -3,10 +3,11 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import ClientTicker from './ClientTicker';
+import PortraitPlaceholder from './PortraitPlaceholder';
 
 const InteractiveDotMatrix = dynamic(() => import('./InteractiveDotMatrix'), {
   ssr: false,
-  loading: () => <div style={{ minHeight: '300px' }} />
+  loading: () => <PortraitPlaceholder />
 });
 
 export default function Hero({ data }) {

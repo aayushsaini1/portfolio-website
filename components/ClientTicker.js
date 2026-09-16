@@ -1,7 +1,8 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { observeAnimationVisibility } from '../lib/observeAnimationVisibility';
 
 const clientLogos = [
   { name: 'Josys', src: '/clients/josys.webp' },
@@ -17,8 +18,17 @@ const clientLogos = [
 ];
 
 export default function ClientTicker() {
+  const trackRef = useRef(null);
   // Duplicate logos array twice to ensure seamless infinite looping scroll
   const scrollItems = [...clientLogos, ...clientLogos, ...clientLogos];
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    return observeAnimationVisibility(track.parentElement, (isVisible) => {
+      track.style.animationPlayState = isVisible ? 'running' : 'paused';
+    });
+  }, []);
 
   return (
     <div className="client-ticker-container" style={{
@@ -52,7 +62,7 @@ export default function ClientTicker() {
       }} />
 
       {/* Animated track */}
-      <div className="client-ticker-track" style={{
+      <div ref={trackRef} className="client-ticker-track" style={{
         display: 'flex',
         alignItems: 'center',
         gap: '3rem',

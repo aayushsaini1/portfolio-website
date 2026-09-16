@@ -12,6 +12,7 @@ import { SurfaceLayer } from './decals.js';
 import { normalMapFromImage } from './textures.js';
 import { MacroDofPass } from './dofPass.js';
 import { BAKED_POSE } from './bakedPose.js';
+import { QUALITY, initialQuality, pixelRatioFor, QualityMonitor } from './performance.mjs';
 
 export const DEFAULT_HOLO_PARAMS = {
   performance: 'High',
@@ -74,7 +75,6 @@ const TONE_MAPPINGS = {
 };
 
 const CLOTH_LONG_SIDE = 3;
-const CLOTH_SEGMENTS = 48;
 const WHITE = new THREE.Color(0xffffff);
 
 const GrainShader = {
@@ -116,13 +116,21 @@ export class HoloApp {
     const width = host.clientWidth || window.innerWidth;
     const height = host.clientHeight || window.innerHeight;
 
+    this.perfProfile = initialQuality({
+      cores: navigator.hardwareConcurrency,
+      memory: navigator.deviceMemory,
+      coarsePointer: window.matchMedia('(pointer: coarse)').matches,
+    });
+    this.qualityMonitor = new QualityMonitor(this.perfProfile);
+    this.currentPR = pixelRatioFor(this.perfProfile, window.devicePixelRatio, width, height);
+
     this.renderer = new THREE.WebGLRenderer({
       antialias: false,
       powerPreference: 'high-performance',
       stencil: false,
       alpha: true,
     });
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    this.renderer.setPixelRatio(this.currentPR);
     this.renderer.setSize(width, height);
     this.renderer.toneMapping = THREE.AgXToneMapping;
     this.renderer.toneMappingExposure = 1.1;
@@ -135,8 +143,10 @@ export class HoloApp {
     this.updateCameraPositionForViewport();
 
     const pmrem = new THREE.PMREMGenerator(this.renderer);
-    const envTex = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
-    this.scene.environment = envTex;
+    const environment = new RoomEnvironment();
+    this.environmentTarget = pmrem.fromScene(environment, 0.04);
+    this.scene.environment = this.environmentTarget.texture;
+    environment.dispose();
     pmrem.dispose();
 
     const rimA = new THREE.DirectionalLight(0x7fd4ff, 1.1);
@@ -159,13 +169,11 @@ export class HoloApp {
     this.clothMesh.frustumCulled = false;
     this.clothMesh.visible = false;
     this.clothAspect = 1;
-    this.clothSegments = CLOTH_SEGMENTS;
+    this.clothSegments = QUALITY[this.perfProfile].segments;
     this.buildCloth(1);
     this.scene.add(this.clothMesh);
 
     this.bumpSource = null;
-    this.perfProfile = 'High';
-    this.currentPR = Math.min(window.devicePixelRatio, 2);
     this.clock = new THREE.Clock();
     this.elapsed = 0;
     this.raycaster = new THREE.Raycaster();
@@ -210,11 +218,11 @@ export class HoloApp {
     this.controls.update();
 
     const rt = new THREE.WebGLRenderTarget(width, height, {
-      samples: 8,
+      samples: Math.min(QUALITY[this.perfProfile].samples, this.renderer.capabilities.maxSamples),
       type: THREE.HalfFloatType,
     });
     this.composer = new EffectComposer(this.renderer, rt);
-    this.composer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    this.composer.setPixelRatio(this.currentPR);
     this.composer.addPass(new RenderPass(this.scene, this.camera));
     this.dofPass = new MacroDofPass(this.scene, this.camera);
     this.dofPass.enabled = false;
@@ -228,8 +236,9 @@ export class HoloApp {
     this.resizeObserver = new ResizeObserver(() => this.onResize());
     this.resizeObserver.observe(host);
 
-    this.applyParams(DEFAULT_HOLO_PARAMS);
-    this.renderer.setAnimationLoop(this.tick);
+    this.applyParams({ ...DEFAULT_HOLO_PARAMS, performance: this.perfProfile });
+    document.addEventListener('visibilitychange', this.onVisibilityChange);
+    // Start only after the texture is ready and the cloth is revealed.
   }
 
   buildCloth(aspect) {
@@ -271,7 +280,7 @@ export class HoloApp {
 
   applyParams(p) {
     this.params = p;
-    if (p.performance !== this.perfProfile) this.applyPerfProfile(p.performance);
+    this.applyPerfProfile(p.performance);
     const m = this.holoMaterial;
     m.color.set(p.material.baseColor);
     m.roughness = p.material.roughness;
@@ -350,29 +359,45 @@ export class HoloApp {
 
   reveal() {
     this.clothMesh.visible = true;
+    this.onVisibilityChange();
   }
 
   applyPerfProfile(profile) {
     this.perfProfile = profile;
-    const dpr = window.devicePixelRatio;
-    this.currentPR = profile === 'Low' ? 1 : profile === 'Medium' ? Math.min(dpr, 1.5) : Math.min(dpr, 2);
-    const samples = profile === 'Low' ? 0 : profile === 'Medium' ? 4 : 8;
-    const segs = profile === 'Low' ? 28 : profile === 'Medium' ? 36 : 48;
+    const quality = QUALITY[profile];
     const w = this.host.clientWidth || window.innerWidth;
     const h = this.host.clientHeight || window.innerHeight;
+    this.currentPR = pixelRatioFor(profile, window.devicePixelRatio, w, h);
     this.renderer.setPixelRatio(this.currentPR);
     this.renderer.setSize(w, h);
     this.composer.setPixelRatio(this.currentPR);
-    this.composer.renderTarget1.samples = samples;
-    this.composer.renderTarget2.samples = samples;
-    this.composer.renderTarget1.dispose();
-    this.composer.renderTarget2.dispose();
-    this.composer.setSize(w, h);
-    if (segs !== this.clothSegments) {
-      this.clothSegments = segs;
-      this.buildCloth(this.clothAspect);
+    const samples = Math.min(quality.samples, this.renderer.capabilities.maxSamples);
+    for (const target of [this.composer.renderTarget1, this.composer.renderTarget2]) {
+      if (target.samples !== samples) {
+        target.samples = samples;
+        target.dispose();
+      }
     }
+    this.composer.setSize(w, h);
+    this.bloomPass.enabled = quality.bloom;
+    this.physicsParams = { ...this.params.physics, iterations: quality.iterations };
+    // Keep the existing mesh and simulation during runtime downgrades so the
+    // visitor's drape is preserved. Initial mesh density uses device hints.
   }
+
+  onVisibilityChange = () => {
+    if (this.disposed) return;
+    this.renderer.setAnimationLoop(null);
+    this.clock.stop();
+    this.qualityMonitor.reset();
+    if (document.hidden) this.cancelInteraction();
+    if (!document.hidden && this.clothMesh.visible) {
+      this.clock.start();
+      this.lastFpsTime = performance.now();
+      this.frameCount = 0;
+      this.renderer.setAnimationLoop(this.tick);
+    }
+  };
 
   setBumpMap(img) {
     const old = this.holoMaterial.normalMap;
@@ -545,8 +570,12 @@ export class HoloApp {
     this.camera.aspect = width / height;
     this.updateCameraPositionForViewport();
     this.camera.updateProjectionMatrix();
+    this.currentPR = pixelRatioFor(this.perfProfile, window.devicePixelRatio, width, height);
+    this.renderer.setPixelRatio(this.currentPR);
+    this.composer.setPixelRatio(this.currentPR);
     this.renderer.setSize(width, height);
     this.composer.setSize(width, height);
+    this.qualityMonitor.reset();
   }
 
   updateCameraPositionForViewport() {
@@ -568,11 +597,13 @@ export class HoloApp {
   tick = () => {
     if (this.disposed) return;
     const dt = this.clock.getDelta();
+    const nextProfile = this.qualityMonitor.sample(dt, this.grabbing || this.draggingDecal);
+    if (nextProfile) this.applyPerfProfile(nextProfile);
     this.elapsed += dt;
     this.grainPass.uniforms.uTime.value = this.elapsed % 61.7;
 
     if (this.params) {
-      this.sim.step(dt, this.params.physics);
+      this.sim.step(dt, this.physicsParams);
       this.clothGeometry.attributes.position.needsUpdate = true;
       this.clothGeometry.computeVertexNormals();
     }
@@ -638,12 +669,16 @@ export class HoloApp {
     window.removeEventListener('keydown', this.onKeyDown);
     window.removeEventListener('keyup', this.onKeyUp);
     window.removeEventListener('blur', this.onWindowBlur);
+    document.removeEventListener('visibilitychange', this.onVisibilityChange);
     this.controls.dispose();
-    this.dofPass.dispose();
+    for (const pass of this.composer.passes) pass.dispose();
     this.composer.dispose();
     this.clothGeometry.dispose();
+    this.holoMaterial.normalMap?.dispose();
+    this.holoMaterial.roughnessMap?.dispose();
     this.holoMaterial.dispose();
     this.surface.dispose();
+    this.environmentTarget.dispose();
     this.scene.traverse((obj) => {
       if (obj.geometry && obj.geometry !== this.clothGeometry) obj.geometry.dispose();
     });
