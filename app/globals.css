@@ -259,23 +259,34 @@ ul {
   display: block;
 }
 
-/* Section inner row: label+title on left, content on right (desktop) */
+/* Section headings sit directly above full-width content. */
 .section-inner {
   display: flex;
-  gap: 4rem;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: stretch;
 }
 
-/* Fixed-width column holding [0x] label + section title */
 .section-header {
-  width: 14rem;
-  flex-shrink: 0;
+  width: 100%;
+}
+
+#experience .section-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  column-gap: 4rem;
+}
+
+#experience .section-header {
+  grid-column: 1 / -1;
 }
 
 /* Section specific */
 .hero-section {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
 }
 
 .hero-text h1 {
@@ -397,7 +408,7 @@ ul {
 .about-top-layout {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   gap: 4rem;
   width: 100%;
 }
@@ -789,7 +800,7 @@ flex-shrink: 0;
 .contact-footer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .contact-text {
@@ -852,14 +863,68 @@ flex-shrink: 0;
 
 /* ---- Experiments Section ---- */
 .experiments-grid {
-  flex: 1;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 6rem) / 3.35);
+  grid-template-columns: none;
   gap: 2rem;
-  padding-left: 2rem;
+  min-width: 0;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: 0;
+  padding: 0.3rem 0 1rem;
+  scrollbar-width: none;
+}
+
+.experiments-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.experiments-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.experiments-controls {
+  display: flex;
+  gap: 0.8rem;
+  flex-shrink: 0;
+}
+
+.experiments-controls button {
+  display: grid;
+  place-items: center;
+  width: 4.4rem;
+  height: 4.4rem;
+  border: 0.1rem solid var(--border-color);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-color);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.experiments-controls button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.experiments-controls button:hover:not(:disabled) {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.experiments-grid:focus-visible,
+.experiments-controls button:focus-visible {
+  outline: 0.2rem solid var(--accent-color);
+  outline-offset: 0.3rem;
 }
 
 .experiment-card {
+  min-width: 0;
+  scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -923,6 +988,18 @@ html.dark .experiment-card:hover {
   transition: transform 0.4s ease, filter 0.4s ease;
 }
 
+.experiment-image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: var(--container-bg-color);
+  color: var(--muted-color);
+  font-size: var(--font-size-sm);
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .experiment-card:hover .experiment-image {
   transform: scale(1.05);
   /* filter: grayscale(0%); */
@@ -951,21 +1028,16 @@ html.dark .experiment-card:hover {
   margin: 0 0 2rem 0;
 }
 
-.experiment-tags {
+.experiment-platforms {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
+  align-items: center;
+  gap: 1.2rem;
   margin-top: auto;
+  color: var(--muted-color);
 }
 
-.experiment-tags .tag {
-  font-size: 1rem;
-  font-family: var(--font-mono), monospace;
-  padding: 0.2rem 0.6rem;
-  border: 0.1rem solid var(--border-color);
-  border-radius: 0.2rem;
-  color: var(--muted-color);
-  background-color: var(--container-bg-color);
+.experiment-platforms svg {
+  flex-shrink: 0;
 }
 
 .not-found-home-btn:hover {
@@ -1495,7 +1567,7 @@ html.dark .experiment-card:hover {
   .hero-section {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     gap: 4rem;
   }
 
@@ -1524,6 +1596,11 @@ html.dark .experiment-card:hover {
   .section-inner {
     flex-direction: column;
     gap: 1.6rem;
+  }
+
+  #experience .section-inner {
+    display: flex;
+    align-items: stretch;
   }
 
   .section-header {
@@ -1651,7 +1728,7 @@ html.dark .experiment-card:hover {
   /* ---- Experiments mobile ---- */
   .experiments-grid {
     padding-left: 0;
-    grid-template-columns: repeat(2, 1fr);
+    grid-auto-columns: calc((100% - 3rem) / 2.2);
     gap: 1.5rem;
   }
 
@@ -1660,6 +1737,7 @@ html.dark .experiment-card:hover {
     .hero-section {
       flex-direction: column;
       gap: 3rem;
+      align-items: center;
     }
 
     .hero-text h1 {
@@ -1680,14 +1758,18 @@ html.dark .experiment-card:hover {
       /* portrait appears above text */
     }
 
-    .projects-grid,
-    .experiments-grid {
+    .projects-grid {
       grid-template-columns: 1fr;
+    }
+
+    .experiments-grid {
+      grid-auto-columns: 88%;
     }
 
     .about-top-layout {
       flex-direction: column;
       gap: 3rem;
+      align-items: flex-start;
     }
 
     .about-graphic {

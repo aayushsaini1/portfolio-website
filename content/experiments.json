@@ -1,33 +1,36 @@
 [
   {
+    "title": "macroPad - control Mac with phone",
+    "description": "Turn your phone into a control pad for your Mac, bringing everyday actions and shortcuts within reach without switching away from what you're working on.",
+    "platforms": ["phone", "laptop"],
+    "link": null,
+    "image": "/work/experiments/macropad.webp"
+  },
+  {
     "title": "Apex Touch - watchOS App",
     "description": "An Apple Watch (WatchOS) app which gets connected to F1 25 game and shows real time telemetry data on your wrist along with haptic feedback for gear shifts and race events",
-    "tags": [
-      "Swift UI",
-      "WatchOS",
-      "Game Data API"
-    ],
+    "platforms": ["watch"],
     "link": "https://github.com/aayushsaini1/Apex-touch",
     "image": "/work/experiments/Apex-touch-thumb.webp"
   },
   {
     "title": "What's over my head",
     "description": "A scanning tool that detects and displays real-time details of aircraft flying directly over your current location, utilizing live flight telemetry and coordinate mapping APIs.",
-    "tags": [
-      "Next Js",
-      "Open Sky API"
-    ],
+    "platforms": ["web"],
     "link": "https://whats-over-my-head.vercel.app",
     "image": "/work/experiments/whats-over-my-head.webp"
   },
   {
+    "title": "Splatwalk - walk into image",
+    "description": "Step inside an image and explore it as a space, moving through the scene to discover new perspectives beyond the original frame.",
+    "platforms": ["laptop"],
+    "link": "https://splatwalk.vercel.app",
+    "image": null
+  },
+  {
     "title": "Bull Bear Bonsai",
     "description": "A live-rendered 3D bonsai tree that reacts dynamically to real-time stock market indices, changing colors and shape based on market volatility and trends.",
-    "tags": [
-      "Vite",
-      "Three js",
-      "Stock Market API"
-    ],
+    "platforms": ["web"],
     "link": "https://b3tree.vercel.app",
     "image": "/work/experiments/bull-bear-bonsai.webp"
   }
